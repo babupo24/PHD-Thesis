@@ -1,0 +1,488 @@
+
+\chapter{UNPOLARIZED \pip\  CROSS-SECTION}
+\label{chapter:xsec}
+\section{Introduction}
+
+This chapter presents the initial measurement of the unpolarized \dipion cross-section in $pp$ collisions at the center-of-mass energy ($\sqrt{s}$) of 200 GeV using data from the STAR Run 2012. The dataset is dominated by the jet patch triggered with a lower energy threshold than the run 2015 dataset, making it a suitable choice for measuring the cross-section as it enhances the sensitivity to gluons.
+\section{Analysis}
+\subsection{Dataset}
+The STAR run 12 $pp$ collision data at $\sqrt{s} = 200$ GeV is used in this analysis. This dataset has been widely used previously for multiple physics analyses by STAR \cite{12data:spin2016, 12data:jpsi2018, 12data:gjet2020, 12data:jpsi2020, 12data:invjet2021}. The final set of 601 runs after quality assurance \cite{Adkins:2015ccl} is used in this analysis, corresponding to an integrated luminosity of 17 $pb^{-1}$.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+         Jet Patch Trigger& Offline ID & ADC & Threshold (GeV) \\
+         \hline
+         JP0 & 370601 & 20 & 3.5 \\ 
+         JP1 & 370611 &28 & 5.4\\ 
+         JP2 & 370621 &36 & 7.3\\ 
+         \hline
+    \end{tabular}
+    \caption{Energy threshold for Jet Patch Triggers used in this dataset.}
+    \label{tab:trigthreshold12}
+\end{table}
+
+\subsection{Simulation and  Comparison with the Data}
+
+The cross section from the experimental data suffered from detector inefficiencies, for example, event triggering efficiency, and particle tracking efficiency. To be compared directly to the measured result with the theory, which is at the particle level, the measured result should be free from those detector effects, for which the simulation is needed.  
+
+To produce simulated particles for the proton-proton collisions at the center-of-mass energy $\sqrt{s}=200$ GeV, known as ``particle level", the PYTHIA 6 Monte Carlo event generator \cite{Sjostrand:2006za} is used relying on a Perugia 12 \cite{Skands:2010ak} with the modified tune (PARP(90)=0.213) \cite{Adkins:2015ccl}, which utilizes the CTEQ6 PDF sets \cite{Pumplin:2002vw}.
+
+The next step is to simulate the response of the STAR detector using GEANT3 \cite{Brun:1987ma}. Before the actual reconstruction is performed, the raw simulated detector responses are mixed event-by-event with the actual detector responses from the zero bias trigger sample, which is called the embedding process. For the embedding, we only use events sampled by the zero bias trigger since it represents random detector states.
+The detailed description of the production of the embedding sample is discussed in the STAR thesis, which includes the measurement of the jet cross section \cite{DmitriThesis2021} and also in Chapter \ref{chapter:iff}.
+
+The embedding sample should have a good description of the data in order to apply the embedding-driven results to the experimental measurements. The shape of the distributions from the embedding and data are compared by normalizing the distribution by the total integral of the distribution. The detailed comparison can be found in the appendix \ref{embed_comparison}. Figure \ref{fig:datembM12} displays the data-embedding comparison of \minv distributions for all three triggers used (top panel). For all triggers, the distribution shows a good agreement over the wide range of \minv (the relative difference is shown in the bottom panels). The disagreement in the higher mass region, which is statistically limited, is because of poor reconstruction of the higher momentum tracks in the simulation.    
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+            \centering
+		\includegraphics[scale=0.38]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hMinv_JP0.pdf}
+        \subcaption{\minv comparison for JP0 trigger.}
+        \end{subfigure}
+        \hspace{1cm}
+	\begin{subfigure}{0.45\linewidth}
+        \centering
+		\includegraphics[scale=0.38]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hMinv_JP1.pdf}
+        \subcaption{\minv comparison for JP1 trigger.}
+	\end{subfigure}
+	\begin{subfigure}{0.45\linewidth}
+            \centering
+		\includegraphics[scale=0.38]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hMinv_JP2.pdf}
+        \subcaption{\minv comparison for JP2 trigger}
+	\end{subfigure}
+	\caption{$M_{inv}^{\pi^+\pi^-}$ distribution comparison for (a) JP0, (b) JP1, and (c) JP2 triggers.}
+ \label{fig:datembM12}
+\end{figure}
+
+
+
+\subsection{Event Selection}
+\label{subsec:evtsel}
+The event and track selection criteria employed by the Spin group for this analysis are standard. The primary vertex with the highest rank ($V_{z, rank}>10e6$) must be within 60 cm from the center of the TPC along the beam direction. In addition, only events satisfying the JP0, JP1, or JP2 triggering criteria are used, as these are the dominant triggers in the data sample, which are selected using the offline trigger IDs 370601, 370611, and 370621 for the JP0, JP1, and JP2, respectively. Primary tracks from the selected primary vertices that pass track-level quality cuts are used to identify pions. A cut of $-1<n\sigma_\pi <2$ is used as the default pion selection cut throughout the analysis.
+
+Pairs of oppositely charged pion tracks within a collision event are used to construct all-inclusive \dipion events. \dipion events with the opening angle in $\eta - \phi$ space (cone) greater than 0.7 or smaller than 0.02 are excluded. The upper cone cut is intended to ensure that the \dipion is within the jet; note that the jet reconstruction is not required in this channel. The minimum cone cut is determined from a study of the cone resolution using embedding, which excludes \dipion events formed from tracks that are very close that the detector cannot identify as separate. The cone resolution, a difference between the \dipion opening angle at the particle and detector level, for different upper cone cuts, is shown in figure \ref{fig:coneres}. The cone resolution is considered as the Gaussian width of the cone difference at the particle and detector level, which has no upper cone cut dependence. It is found to be $0.018$ GeV/$c^2$, and the minimum cone cut greater than $0.02$ GeV/$c^2$ is applied throughout this analysis. Additionally, hard cuts are applied to the pair $p_T$ ($1<$ \ptpair $<15$ (GeV/$c$)) and pair mass ($0.27 <$\mpair$ <4$ (GeV/$c^2$)) to further refine the selection of \dipion events.
+
+All the selection cuts applied in this analysis are listed in the table \ref{tab:finalcuts}. 
+In the table, ``Detector" refers to the reconstructed quantities, ``particle" refers to the corresponding Monte-Carlo generated PYTHIA quantities associated with the detector quantities, and ``PYTHIA" refers to the pure PYTHIA particles.
+
+\drawgraphics{0.8}{Results/CrossSection2012/ConeResolution/cone_resolution.pdf}{Difference between generated and reconstructed \dipion invariant mass for different upper cone cut.}{fig:coneres}
+
+\begin{table}
+  	\centering
+  	\begin{small}
+  	\begin{tabular}{|c|c|c|c|}
+  		\hline
+  		\multirow{2}{*}{Quantities} &\multicolumn{3}{|c|}{Selection Cuts} \\ 
+    
+            \cline{2-4}
+             & Data & Detector & Particle (PYTHIA) \\
+             \hline
+  		Z-Vertex($V_z, cm$) & $< 60$&$< 60$&\\
+  		\hline
+  		$V_{z, rank}$ & $>1e6$&$>1e6$& \\
+  		\hline	
+  		Trigger & JP0, JP1, JP2&JP0, JP1, JP2& \\
+  		\hline
+  		$p_{T, track} (GeV/c)$ & $ 0.5<p_T<15$&$0.5<p_T<15$&$0.5<p_T<15$ \\
+  		\hline
+  		$|\eta_{track}|$ & $< 1$&$< 1$&$< 1$\\
+  		\hline
+  		$dca (cm)$ & $p_T$ dependence&$p_T$ dependence& \\
+  		\hline
+  		nHitsFit & $> 15$ &$> 15$&\\
+  		\hline
+  		nHits Ratio & $> 0.51$ &$> 0.51$& \\
+  		\hline	
+  		Pion Selection &$-1<n\sigma_\pi<2$ &$-1<n\sigma_\pi<2$&GePID:8,9 (pdg:$\pm 211$)\\
+            \hline
+            Cone & $0.02<Cone<0.7$ &$0.02<Cone<0.7$&$0.02<Cone<0.7$\\
+  		\hline
+  		$\eta^{\pi^+\pi^-}$ & $|\eta^{\pi^+\pi^-}|<1$ & $|\eta^{\pi^+\pi^-}|<1$& $|\eta^{\pi^+\pi^-}|<1$\\
+  		\hline
+  		$p_T^{\pi^+\pi^-} (GeV/c)$ & $1 < p_T^{\pi^+\pi^-} < 15.0$ & $1 < p_T^{\pi^+\pi^-} < 15.0$& $1 < p_T^{\pi^+\pi^-} < 15.0$\\
+  		\hline
+  		$M_{inv}^{\pi^+\pi^-} (GeV/c^2)$ & $ 0.27 < M_{inv}^{\pi^+\pi^-}< 4.0$ & $ 0.27 < M_{inv}^{\pi^+\pi^-}< 4.0$& $ 0.27 < M_{inv}^{\pi^+\pi^-}< 4.0$\\
+  		\hline
+  		\multicolumn{4}{|c|}{$cone = \sqrt{(\eta^{\pi^+}-\eta^{\pi^-})^2 + (\phi^{\pi^+} -\phi^{\pi^-})^2}$} \\
+  		\hline
+  	\end{tabular}
+    \end{small}
+\caption{Event and track selection cuts}
+\label{tab:finalcuts}
+\end{table}
+
+The dca has the following $p_T$ dependence: \\
+\[\text{dca} =
+\begin{cases}
+< 2 \text{\ cm, \hspace{0.2\linewidth} if  $p_T< 0.5$ GeV }\\
+< 2.5 -\text{ $p_T\ \cdot (1\ \text{ cm/GeV})$,\hspace{0.01\linewidth} if $0.5\leq p_T < 1.5$ GeV}\\
+< 1 \text{\ cm, \hspace{0.2\linewidth} if $p_T \geq 1.5$}\\
+\end{cases}
+\]\\
+ To measure the unpolarized $\pi^+\pi^-$ cross-section, it is necessary to bin the data by invariant mass (and in the $p_T$ would be more impactful, though this analysis only considers mass bins). The width of the bins must be greater than the invariant mass resolution, which is derived from the individual momenta of the pion tracks and their energies in each pair. The energy of the identified pions is calculated using known pion mass ($M^{\pi^\pm} = 0.1396$ GeV/$c^2$) and the pion's momentum from the TPC. To study the resolution, an embedding sample is used that matches the data well. The difference between the \dipion mass at the detector level and at the particle level is considered as  the mass resolution, which is studied in 12 mass bins with approximately equal widths of 0.3 GeV/$c^2$. Figure \ref{resolutionfit} shows the differences in the detector and particle masses for each bin, and the Gaussian width of each distribution is considered the mass resolution. The bin resolution is plotted as vertical error bars as a function of the average mass in Figure \ref{res}. The resolution is better in the lower mass region ($<0.03$) than in the higher mass region. This mass-resolution dependence is consistent with the (transverse) momentum resolution of the particle tracks as the invariant mass has a linear relation to the transverse momentum of the \dipion. 
+
+\subsection{Cross Section Binning}
+\label{subsec:binresolution} 
+ \begin{figure}
+ 	\centering	
+ 	\includegraphics[scale=0.75, trim=0.1cm 0cm 0.1cm 0cm, clip]{./Results/CrossSection2012/BinResolution/resolution_fit.pdf}
+ 	\caption{$M_{gen}^{\pi^+\pi^-} - M_{rec}^{\pi^+\pi^-}$ distributions in 12 mass bins  fitted with the \emph{gaussian} function. The bin range is displayed in each panel.}
+ 	\label{resolutionfit}
+ 	\end{figure}   
+ \begin{figure}
+ 	\centering	
+ 	\includegraphics[scale=0.6]{./Results/CrossSection2012/BinResolution/resolution.pdf}
+ 	\caption{Bin resolution (gaussian widths from figure \ref{resolutionfit}) as a function of \minv. The envelope of the vertical error bars gives the absolute resolution (bin resolution when mass integrated.)}
+ 	\label{res}
+ \end{figure}   
+\drawgraphics{0.7}{./Results/CrossSection2012/PrelimResults/rawyields.pdf}{Raw yields for JP0, JP1, and JP2 triggers.}{fig:rawyields}
+
+The \mpair bin width for the cross-section measurement should not be smaller than the \mpair resolution. While the bin resolution varies with the mass, a minimum bin width is chosen to be greater than the absolute resolution, which is $0.054$ GeV/$c^2$. This ensures that the bin width is large enough to avoid any smearing effects on the measured cross-section.
+
+The \dipion yields for each trigger are shown in Figure \ref{fig:rawyields}. The dominant statistics come from the JP1-triggered events, followed by JP2 and JP0, respectively. The yields are lower at higher masses for JP0 than for JP1 and JP2 due to the trigger threshold energy. For all triggers, the same mass binning is used, with the width varied to account for the decreased yields at higher masses. The selected mass bins for the cross-section and other relevant kinematics are shown in Table \ref{tab:xseckin}.
+
+\subsection{Luminosity}
+ \label{subsec:lumi}
+ In the STAR experiment, events are selected based on specific triggering conditions to meet particular physics goals. The three JP triggers, each with a different trigger threshold (table \ref{tab:trigthreshold12}), have different luminosity per trigger for the data sample used, different from the overall integrated luminosity reported with the dataset. The luminosities per trigger are recorded during the data-taking process and are available online (\href{https://www.star.bnl.gov/protected/common/common2012/trigger2012/lumipp200GeV/lum_perrun_JP0.txt}{JP0}, \href{https://www.star.bnl.gov/protected/common/common2012/trigger2012/lumipp200GeV/lum_perrun_JP1.txt}{JP1}, \href{https://www.star.bnl.gov/protected/common/common2012/trigger2012/lumipp200GeV/lum_perrun_JP2.txt}{JP2}). The total sum of luminosity per run per trigger for all 601 runs gives the luminosity per trigger. Also, the average prescale\footnote{prescale value for a particular trigger represents how often the triggered event is recorded. For example, if the prescale for a JP0 trigger is 118, only one event for every 118 events is kept.} value for each trigger is calculated in a similar fashion. The prescale values are useful for trigger-specific analysis in the embedding. 
+ 
+ \begin{table}
+ 	\centering
+ 	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Triggers & JP0 & JP1 & JP2&\multirow{4}{*}{$L_{JP}= 26.64\  pb^{-1}$} \\
+		\cline{1-4}
+		 Trig. ID & 370601 & 370611 & 371621&\\
+		 \cline{1-4}
+		 $L(pb^{-1})$ & 0.16 & 7.68 & 18.80 & \\
+		 \cline{1-4}		
+		 Prescale & 118.335 & 2.514 & 1&\\
+		 \hline
+ 	\end{tabular}
+ \caption{Total luminosity and prescale value per trigger.}
+ \label{tab:lumi}
+ \end{table}
+  
+\drawgraphics{1}{Results/CrossSection2012/Luminosity/lum_pertrigger_perrun.pdf}{Luminosity as a function of the run index, where the run index is assigned by sorting run numbers in increasing order, for JP0 (\textit{bottom}), JP1 (\textit{middle}), and JP2 (\textit{top}).}{fig:lumi}
+
+Table \ref{tab:lumi} shows the total luminosity and average prescale values for each trigger for the whole data sample used in this analysis. Figure \ref{fig:lumi} displays the recorded luminosity as a function of the run index for JP0 (bottom), JP1(middle), and JP2 (top) triggers. The saw-tooth pattern in the plot depicts the fill dependence, where the recorded luminosity falls off with time within the fill.   
+  
+\subsection{Unfolding Analysis}
+\label{sec:unfolding}
+The \dipion pairs are reconstructed from the measured pion tracks from the detector. These reconstructed \dipion pairs are infected with the detector effects, such as detector inefficiency in the particle tracking and event triggering. Consequently, an event could be reconstructed in different kinematic phase spaces. Moreover, there are active sources of backgrounds in the data (pile-up, beam backgrounds, etc.), which could suppress an event of interest—the unfolding address such issues using the embedding sample. We have used the TUnfoldDensity algorithm\cite{Schmitt:2012} for cross section unfolding.
+
+We are  interested in the \dipion cross section measurement differentiated in thirteen \minv bins, which needs to be corrected for the detector effects. The unfolding problem can be expressed as 
+\begin{equation}
+        \label{eq:uf1}
+        y_i = \sum_{j=1}^m A_{ij}x_j, \ 1\leq i \leq n ,
+\end{equation}
+where, $x_j$ represents the true counts in $j$ bins, $A_{ij}$ is a matrix of probabilities describing the migrations from bin $j$ to any of the $n$ bins, also called a response matrix, and $y_i$ is the detector counts in the bin $i$. If the background $b_i$ is present in the bin $i$, it can be included in the problem as 
+\begin{equation}
+        \label{eq:uf2}
+        y_i = \sum_{j=1}^m A_{ij}x_j + b_i, \ 1\leq i \leq n 
+\end{equation}
+The solution to the above problem may be blown up because of the statistical fluctuation in $y_i$. This issue is addressed by applying a smoothness condition on $x_j$, called regularization. This unfolding algorithm uses a procedure to estimate $x_j$ using a least square method with Tikhonov regularization \cite{Tikhonov:1963}. For the best unfolding output for the least square minimization, the bins in $y_i$ should be greater or equal to the bins in $x_j$ i.e., $n\geq m$.
+
+
+\subsubsection{Binning Consideration for the Unfolding}
+
+\begin{table}
+    \centering
+    \begin{tabular}{cccccc}
+    \hline
+    \input{Results/CrossSection2012/PrelimResults/binning_kin}
+    \end{tabular}
+    \caption{Binning and kinematics for the \dipion cross-section.}
+    \label{tab:xseckin}
+\end{table}
+
+ The response matrix is reconstructed with \dipion yields binned in \minv with $n = 160$ uniform bins (detector bins along the x-axis) and $m = 13$ variable-width bins (true bins along the y-axis), which correspond to the cross-section bins (see details in section \ref{subsec:binresolution}) onto which the data spectrum is unfolded. The input is the \dipion yields binned in \minv from the data with the same binning as the detector axis in the response matrix. This binning scheme meets the requirement for the TUnfoldingDensity algorithm.
+
+ The cross-section binning and the relevant kinematic values in those bins are presented in the table \ref{tab:xseckin}. The optimum value of $n$ is selected after several iterations for a reasonable unfolding output. The response matrices for JP0, JP1, and JP2 triggered events are shown in the top-left panel of figures \ref{fig:unfoldoutjp0}-\ref{fig:unfoldoutjp2}, respectively, where the y-axis contains ``true'' values and the x-axis contains ``reconstructed'' values of \mpair. The response matrix shows a good correlation between the true and reconstructed masses, as most of the entries fall along the diagonal. 
+
+\subsubsection{Background Definition and Normalization Scale} 
+\label{subsec:bkg}
+The embedding records information about the generated (``generated'' and ``true" refers to the same PYTHIA generated quantities recorded by GEANT, which are used interchangeably in this document), and the reconstructed events and tracks quantities. Some particle tracks may have been reconstructed and stored that are not associated with any of the generated tracks. Those are the background tracks, which can be identified via the idTruth of a reconstructed track, which gives information about the association between the generated and reconstructed tracks. Any reconstructed tracks with the zero idTruth value are not associated with the generated tracks and should be treated as a background. In addition, the matching condition is imposed between the idTruth of the reconstructed and the track ID of the generated for the certainty of the association. Thus, to consider a signal track, it must match both conditions, otherwise considered a background track. The definition of a background at the \dipion level is based on whether a pair consists of the background track. In a $\pi^+\pi^-$ pair, if any or both tracks are background, those pairs are considered background pairs.
+
+Figure \ref{fig:databkg} shows the raw \dipion yields from the data (shown in red), backgrounds from the embedding (shown in blue), and background-subtracted data (shown in green) for JP0, JP1, and JP2 triggers from left to right, respectively. The binning scheme for the background is the same as in the data spectrum, so bin-by-bin background subtraction is possible. The \dipion background yield from the embedding, which contributes only in the lower mass region, is multiplied by a scale factor so that it can be directly subtracted from the data. The scale factor, $S_{bkg}$, is determined from the total \dipion yields in the data ($I_{dat}$), and the total \dipion yields in the embedding, $I_{emb}$, as,
+\begin{equation}
+    S_{bkg} = \frac{I_{dat}}{I_{emb}}
+\end{equation}
+
+\drawgraphics{1}{Results/CrossSection2012/Unfolding/input_bkg_3x1.pdf}{Total \dipion yields from the data (``Raw Data" in red), \dipion backgrounds from embedding (``Bkg." in blue), and background subtracted data (``Corrected Data" in green) as a function of \dipion invariant mass, \mpair, for the JP0, JP1, and JP2 triggers from left to right, respectively. Backgrounds are multiplied by the scale factor $S_{bkg}$.}{fig:databkg}
+
+\subsubsection{Unfolding Using TUnfoldDensity Algorithm}
+
+The unfolding algorithm determines the stationary point in the Lagrangian\cite{Schmitt:2012}
+\begin{equation}
+    \mathcal{L}(x,\lambda) = \mathbf{(y -Ax)^TV_{yy}^{-1}(y-Ax)}+\tau^2(x-f_bx_0)^T(\mathbf{L^TL})(x-f_bx_0) + \lambda(Y-e^Tx)
+\end{equation}
+where $Y = \sum_i y_i$ and $e_j = \sum_i A_{ij}$. The first term is expected from the least square minimization, where $\mathbf{V_{yy}}$ of $\mathbf{y}$ is the covariance matrix which holds the square of the uncertainties, and all other vector definitions follow from Eq. \ref{eq:uf2}. The second term describes the regularization condition, which damps fluctuations in $\mathbf{x}$. The regularization strength, $\tau^2$, is considered constant while determining the stationary point of $\mathcal{L}$, which is determined using the L-Curve method \cite{Lcurve}. The third term is the optional area constant with the Lagrangian parameter $\lambda$. 
+
+The TUnfoldDensity algorithm effectively handles background through the SubtractBackground() method, which inputs the background histogram and normalization scale factor. Unfolding is performed with the background subtraction for each trigger individually, allowing us to measure the cross-section for each trigger. The \dipion invariant mass, which is to be unfolded, and background distributions are shown in figure \ref{fig:databkg}. The number of bins in both cases is kept the same, and the subtraction is performed bin-by-bin using the histograms before the actual unfolding method is called. 
+
+\drawgraphics{1}{Results/CrossSection2012/Unfolding/c2x2\_JP0.pdf}{Unfolding for the JP0 triggered cross section.}{fig:unfoldoutjp0}
+\drawgraphics{1}{Results/CrossSection2012/Unfolding/c2x2\_JP1.pdf}{Unfolding for the JP1 triggered cross section.}{fig:unfoldoutjp1}
+\drawgraphics{1}{Results/CrossSection2012/Unfolding/c2x2\_JP2.pdf}{Unfolding for the JP2 triggered cross section.}{fig:unfoldoutjp2}
+
+Figures \ref{fig:unfoldoutjp0}-\ref{fig:unfoldoutjp2} show the unfolding analysis details for triggers JP0, JP1, and JP2, respectively. The top right panel displays the L-curve, a scanned region for the regularization parameter, $\tau$, and the asterisk shows the minimum curvature of the scanned region, which is used to calculate the $\tau$. The L-curve should have an approximate L-shape with the kink somewhere on the scanned region but not too close to the edges for good unfolding results. The bottom left panel presents the bin correlation matrix between the generated (y-axis) and reconstructed (x-axis) bins. 
+
+The bottom right panel depicts the raw data (solid green), the background-subtracted data (dashed blue), and the unfolded distribution (solid red) into 13 cross-section bins. The input data histograms for the unfolding have a different number of bins than those shown here; specifically, the data input consists of 160 reconstructed bins of uniform width, while the output bins are 13 cross-section bins at the truth level. As expected, the unfolded output differs slightly from the input, with yields from the higher mass bins migrating to the lower mass region. This final unfolded distribution is devoid of the bin migration effect and background and is at the true level. However, the true level yields still require corrections from the trigger efficiency and particle tracking efficiency. 
+
+ \subsection{Efficiency Studies}
+Two types of efficiencies appear in this analysis; tracking and triggering efficiencies. In high-energy physics, these analyses are performed using the embedding sample as it has generated and reconstructed event information. Each of these analyses is done separately in the following sub-sections. The detector level cuts listed in the table \ref{tab:finalcuts} are applied for all the efficiency analyses. Only the $p_T$ and $\eta$ cuts are retained at the particle level for both cases' consistency of the kinematic and acceptance effect. 
+
+ \subsubsection{Tracking Efficiency ($\epsilon_{trk}$)}
+ \label{subsec:trkeff}
+
+Mathematically, the tracking efficiency ($\epsilon_{trk}$) is defined as the ratio of the number of reconstructed tracks to the number of generated tracks;
+\begin{equation}
+\epsilon_{trk}^\pi = \frac{N_{gen, rec}^{\pi}}{N_{gen}^{\pi}},
+\label{eq:trkeff}
+\end{equation}
+where $N_{gen}$ is the number of generated tracks and $N_{gen, rec}$ is the number of generated tracks that passed all the detector level cuts called reconstructed tracks. Both generated and reconstructed tracks are subjected to common event-level selection cuts of $|V_z|<60$ cm, $V_{z,rank}|>1e6$ and additional cuts on track $p_T$ and $\eta$ (\emph{common cuts}). In addition to the common cuts, the track is considered reconstructed if it passes all the detector cuts listed in the table \ref{tab:finalcuts}.
+The tracking efficiency is calculated for each of the cross section bins.
+
+Figure \ref{fig:trkeff} illustrates the tracking efficiency for $\pi^+$, $\pi^-$, their product, and the \dipion efficiency, as a function of the \dipion\ invariant mass, for each trigger used.  The top panel displays the tracking efficiency for $\pi^+$ (left) and $\pi^-$ (right) in cross-section \mpair - bins. Pion tracking efficiency increases with mass in the lower mass region but tends to decrease in the higher mass regions. The bottom left panel highlights the mass dependence of the tracking efficiency for a \dipion, which is the product of pion track efficiencies in a pair. The bottom right panel shows the tracking efficiency at the \dipion\ level, which is consistent with the product-level efficiency and provides a consistency check of the two approaches. Efficiency at the product level is utilized to correct each bin in the cross section.
+ \drawgraphics{1}{Results/CrossSection2012/TrackingEfficiency/graph_xbin_chargetrigcombined.pdf}{ Tracking efficiencies in the cross-section \mpair - bins are shown for JP0 (black circle), JP1 (red open square), and JP2 (blue triangle) triggers.}{fig:trkeff}
+ 
+ \subsubsection{Triggering Efficiency ($\epsilon_{trg}$)}
+ \label{subsec:trigeff}
+Trigger efficiency correction is necessary for cross-section measurement analysis in particle physics because the cross-section measures the probability of a certain interaction occurring, and the trigger system plays a crucial role in selecting the events of interest. Given the high rate of events produced from collisions, the trigger system is designed to select only a subset of events of interest for a particular analysis. The trigger efficiency correction aims to account for these inefficiencies and ensure that the observed number of events in the selected sample accurately reflects the number of events that would have been observed without the triggering condition.  
+ 
+ We use the embedding sample to estimate trigger efficiency, which does not know about event triggering unless we use the trigger simulator algorithm. By comparing event information with and without triggering effects, we can calculate the triggering efficiency, denoted as $\epsilon_{trg}$, for a particular trigger of interest. Mathematically, $\epsilon_{trg}$ is the ratio of the number of events triggered to the number of unbiased events, as represented by the equation,
+ \begin{equation}
+     \epsilon_{trg} = \frac{\sum N^{\pi^+\pi^-}_{triggered}}{\sum N^{\pi^+\pi^-}_{unbiased}},
+     \label{eq:trigeff}
+ \end{equation}
+where $N_{triggered}^{\pi^+\pi^-}$ represents the number of \dipion events from a triggered event, while $N_{unbiased}^{\pi^+\pi^-}$ represents the number of \dipion events without the application of a trigger algorithm, both at the truth level. The ``truth level" event refers to the \dipion event from the Monte-Carlo tracks associated with the reconstructed  pion tracks, with all the selection cuts applied at the detector level. The trigger efficiency is calculated for each invariant mass bin for the JP0, JP1, and JP2 triggers using Eq. \ref{eq:trigeff}, as shown in Figure \ref{fig:trigeffMbin}. The triggering efficiency is lower in the lower mass region and higher in the higher mass region for all triggers. The JP0 trigger is activated more frequently, as it has the lowest energy threshold, while the JP1 and JP2 triggers are activated less often due to their higher energy threshold criteria. The trigger efficiency correction is applied for each of the cross-section bins.
+
+\drawgraphics{0.8}{Results/CrossSection2012/TriggerEfficiency/trigEff_hMTrigAll.pdf}{ Trigger efficiency for JP0, JP1, and JP2 triggers as a function of \mpair in cross-section bins. }{fig:trigeffMbin}
+
+\subsection{Corrections for Misidentification and Loss of Pions}
+Usually, in STAR, the $dE/dx -$based data-driven approach is used to make corrections associated with the PID. In this analysis, we opted for the embedding-driven approach as a good match of $n\sigma_\pi$ is used for the PID between the data and embedding (see section \ref{embed_comparison}).
+
+Two corrections are considered associated with the PID. The first correction is for misidentifying protons and kaons as pions within the default $n\sigma_\pi$ cut, which accounts for the contribution from the fake pions in the signal region. The second correction is for the loss of true pions due to the default $n\sigma_\pi$ cut, which needs to be maintained. This correction accounts for the inefficiency of the default pion selection adopted in this analysis. Both corrections are applied to the cross section to improve the accuracy of the results. 
+
+\subsubsection{Correction for the Fake Pion Contribution ($ f_{fake}$)}
+\label{subsec:ffake}
+The $f_{fake}$ is calculated as a fraction of true \dipion pairs within the default $n\sigma_\pi$ cut, accounting for the fake pions entering the signal region. Mathematically, 
+\begin{equation}
+    f_{fake} = \frac{N^{pair}_{n\sigma\pi \&\& true}}{N^{pair}_{n\sigma\pi}}
+\end{equation}
+where the denominator is the \dipion pair selected with the default $n\sigma_\pi$ cut at the detector level, and the numerator is the number of detected pairs that are true pairs (the GEANT particle ID identifies true pairs: 8 for $\pi^+$ and 9 for $\pi^-$).
+
+\drawgraphics{0.8}{Results/CrossSection2012/PIDCorrection/truePairFraction.pdf}{Fraction of true \dipion pair. }{fig:ffake}
+
+Figure \ref{fig:ffake} shows the $f_{fake}$ in \mpair  cross-section bins for all three JP triggers. $f_{fake}$ has a mild mass dependence, with the increase in the fraction as the mass increases. Also, the fraction has a trigger dependence, specifically in the region \mpair $<1.5$ GeV/$c^2$; the fraction is lower for the trigger of a lower trigger threshold. The correction for fake contributions is applied at the triggered cross-section level on a bin-by-bin basis.
+
+\subsubsection{Correction for the  Pion Loss ($f_{loss}$)}
+\label{subsec:floss}
+Some of the true \dipion may be lost due to the restrictive PID cut. This loss of \dipion events can be estimated by calculating the fraction; 
+\begin{equation}
+    f_{loss} = \frac{N_{true}}{N_{n\sigma\pi \&\& true}}
+\end{equation}
+where $N_{true}$ is the number of true \dipion pairs and $N_{n\sigma_\pi\&\& true}$ is the number of true \dipion pairs which falls within the $-1<n\sigma_\pi<2$ range. This accounts for the inefficiency of the applied PID cut on identifying pion. This fraction is greater than one and increases the yields by this factor to account for the loss of \dipion events.
+
+\drawgraphics{0.8}{Results/CrossSection2012/PIDCorrection/truePairMissed.pdf}{ PID cut efficiency fraction, which accounts for the loss of true \dipion pairs due to the detector level PID cut, $-1<n\sigma_\pi<2$. }{fig:floss}
+
+Figure \ref{fig:floss} shows the $f_{loss}$ as a function of \mpair in cross-section bins for all JP triggers. The $f_{loss}$ is independent of the triggers. The loss is higher in the lower mass, which decreases in the higher mass region.
+$f_{loss}$ varies from 40\% at the lower mass to 30\% at the higher mass regions. 
+
+\subsection{Measured Cross-Section Per Trigger ($\frac{d\sigma_{mes}^{\pi^+\pi^-}}{dM^{\pi^+\pi^-}}$)}
+With all the correction factors on hand as discussed above, the unpolarized \dipion cross-section can be calculated using the formula;
+\begin{equation}
+\centering
+    \frac{d\sigma^{\pi^+\pi^-}_{mes}}{dM_{inv}^{\pi^+\pi^-}} = \frac{f_{fake}*f_{loss}}{L_{int}\cdot \epsilon_{trk}^{\pi^+\pi^-}\cdot \epsilon_{trg}^{\pi^+\pi^-} }\frac{dN^{\pi^+\pi^-}_{true}}{dM^{\pi^+\pi^-}_{inv}},
+    \label{eq:xsec}
+\end{equation}
+where $dN^{\pi^+\pi^-}_{true}/dM^{\pi^+\pi^-}_{inv}$ is the unfolded yields normalized by the bin width. We use $f_{fake}$ to correct for the fake pion contribution, as discussed in section \ref{subsec:ffake}, and $f_{loss}$ to correct for the $n\sigma_{\pi}$ efficiency on the particle identification, as defined in section \ref{subsec:floss}. $L_{int}$ is the integrated luminosity in $pb^{-1}$ (discussed in section \ref{subsec:lumi}). $\epsilon_{trk}^{\pi^+\pi^-}$ is the tracking efficiency correction factor, as discussed in section \ref{subsec:trkeff}, and $\epsilon_{trg}^{\pi^+\pi^-}$ is the trigger efficiency correction factor, as discussed in section \ref{subsec:trigeff}.
+
+We measure the cross-section for each trigger and obtain the final cross-section by calculating the weighted average of all three triggered cross-sections.
+The weight, $w_i$, for combining the cross-sections is determined from the statistical uncertainties in the final cross-section for each trigger.  
+\begin{equation}
+    w_i = \frac{1}{\delta_{stat, i}^2}, i = JP0, JP1, JP2
+\end{equation}
+\begin{equation}
+\label{eq:wtx}
+(d\sigma/dM)_{mes, w} = \frac{\sum_i{w_i * (d\sigma/dM)_{mes,i}}}{\sum_i{w_i}}
+\end{equation}
+\begin{equation}
+\label{eq:wterr}
+\delta_{stat,w} = \frac{1}{\sqrt{\sum{w_i}}}
+\end{equation}
+Equation \ref{eq:wtx} calculates the final cross section as a weighted average of triggered cross sections, and Eq. \ref{eq:wterr} gives the weighted statistical uncertainty for the final cross section. 
+
+\drawgraphics{0.9}{Results/CrossSection2012/PrelimResults/xsec_all.pdf}{Top panel: Unpolarized \dipion cross section as a function of \mpair for the JP0, JP1, and JP2 triggers. The final cross section (labeled ``Comb") is the weighted average of all three triggered cross-sections. Bottom panel: the relative difference between triggered cross-sections and final cross-section.}{fig:xsecall}
+
+Figure \ref{fig:xsecall} displays the measured cross-sections for all three triggers and the weighted average (labeled as ``Comb") of all three triggered cross sections (top panel), and the relative difference between the triggered and weighted average cross-sections in the bottom panel. We find good agreement between trigger-separated cross-sections; the small disagreement is treated as a systematic uncertainty. The relative difference between the triggered cross-sections and the weighted average cross-section is applied as systematic uncertainty, discussed in section \ref{subsec:trigeff}. Tables \ref{tab:xsecjp0}-\ref{tab:xsecjp2} present the numerical details for each triggered cross-section. The measured cross-section is reported in picobarns ($pb$).
+
+\begin{sidewaystable}    
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \input{Results/CrossSection2012/PrelimResults/fxsec_jp0_numbers}
+    \end{tabular}
+    \caption{Numerical details for the JP0 cross section.}
+    \label{tab:xsecjp0}
+\end{sidewaystable}
+
+\begin{sidewaystable}    
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \input{Results/CrossSection2012/PrelimResults/fxsec_jp1_numbers}
+    \end{tabular}
+    \caption{Numerical details for the JP1 cross section.}
+    \label{tab:xsecjp1}
+\end{sidewaystable}
+
+\begin{sidewaystable}    
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+    \hline
+    \input{Results/CrossSection2012/PrelimResults/fxsec_jp2_numbers}
+    \end{tabular}
+    \caption{Numerical details for the JP2 cross section.}
+    \label{tab:xsecjp2}
+\end{sidewaystable}
+
+
+
+\subsection{Systematic Studies}
+ The systematic uncertainties associated with this measurement are studied and quantified in the following sections:
+\subsubsection{Trigger Bias ($\delta_{bias}$)}
+While collecting data, a triggering algorithm is applied to select high transverse energy ($E_T$) jets suitable for physics analysis, which is otherwise shallowed by garbage low $E_T$ jets. However, selecting only higher $E_T$ jets biased the events favoring the quarks jets over gluon jets as gluon jets are broader, which may leak the energy to neighboring calorimeter towers, failing to meet the triggering condition. The size of this effect, called trigger bias, can be estimated using an embedding sample calculating the ratio of the quark fraction at the detector level to the same fraction at the particle level. Here, the detector level is where we apply the trigger to select hard \dipion events, and the particle level is at the level before the trigger is applied. Mathematically, trigger bias fraction, $f_{bias}$ can be expressed as:         
+\begin{equation}
+    \centering
+     f_{bias} = \frac{(N^{\pi^+\pi^-}_q/N^{\pi^+\pi^-}_{q+g})_{detector}}{(N^{\pi^+\pi^-}_q/N^{\pi^+\pi^-}_{q+g})_{particle}}
+    \label{eq:triggerbias}
+\end{equation}
+\begin{equation}
+    \delta_{bias} = 1-f_{bias}
+    \label{eq:bias}
+\end{equation}
+where $q$ and $g$ referred to the quarks and gluons, respectively.
+The source parton, the parton associated with the \dipion, is identified by matching the dipion to the parton by finding the parton closest in the $\eta-\phi$ space. The closest parton to the dipion in $\eta-\phi$ space is assigned as a source parton. Partons - quarks and gluons - associated with each \dipion event are counted at the detector level and particle level. PDG codes identify parton flavors and pions at the particle level.   
+
+The quark and gluon fraction calculated at the detector and particle level is shown in the left panel of figure \ref{fig:triggerbias}. The quark fraction is shown in red, and the gluon fraction is shown in blue. The dashed line represents the detector level fraction, whereas the solid line represents the particle level fraction. The gluon-initiated events dominate the lower mass region, whereas the quark-initiated events dominate the higher mass region, as expected. The calculated fraction, $f_{bias}$, is shown in the right panel of figure \ref{fig:triggerbias}. The associated systematic uncertainty, $\delta_{bias}$, is given by equation \ref{eq:bias}. The $\delta_{bias}$ is found to be very small over the range of invariant mass bins.
+
+\drawgraphics{1}{Results/CrossSection2012/TriggerBias/triggerBias.pdf}{ Triggger bias fraction as a function of invariant mass.}{fig:triggerbias}
+
+
+\subsubsection{Systematic Uncertainty Associated with $f_{fake}$ ($\delta_{fake}$) }
+The size of systematic uncertainty associated with the $f_{fake}$ is estimated by varying the $n\sigma_\pi$ cut by 0.5 from both sides on the default PID cut $-1<n\sigma_\pi<2$. The difference between the ratio of the default fraction to the wider fraction ($-1.5<n\sigma_\pi<2.5$) and the ratio of the default fraction to the narrower fraction ($-0.5<n\sigma_\pi<1.5$) is assigned as a systematic uncertainty, $\delta_{fake}$, as shown in figures \ref{fig:sysff0}-\ref{fig:sysff2} for each of the trigger.  $\delta_{fake}$ is estimated for each cross-section bin.     
+
+\drawgraphics{0.9}{Results/CrossSection2012/PIDCorrection/pidsys_jp0.pdf}{Systematic error associated to the $f_{fake}$ for the JP0 trigger.}{fig:sysff0}
+
+\drawgraphics{0.9}{Results/CrossSection2012/PIDCorrection/pidsys_jp1.pdf}{Systematic error associated to the $f_{fake}$ for the JP1 trigger.}{fig:sysff1}
+
+\drawgraphics{0.9}{Results/CrossSection2012/PIDCorrection/pidsys_jp2.pdf}{Systematic error associated to the $f_{fake}$ for the JP2 trigger.}{fig:sysff2}
+
+\subsubsection{Systematic Error Associated with $f_{loss}$ ($\delta_{loss}$)}
+The systematic uncertainty associated with the $f_{loss}$ is determined by studying the embedding description of the data. Figure \ref{fig:nsigma2d} shows the reconstructed $n\sigma_{\pi^+}$ along the y-axis and $n\sigma_{\pi^-}$ along the x-axis of a true \dipion pair from the embedding in the lowest \mpair bin for JP0 trigger. This is just a representative plot to explain the general approach. All the data points displayed in the picture have a very good description of the data. However, embedding fails to describe the data in the region $ n\sigma_\pi <-4$ (see figure \ref{fig:nsigmacomp}), and the $N_{true}$ fails to account for the \dipion yields from this region.
+
+To estimate the systematic uncertainty's size from $f_{loss}$ ($\delta_{loss}$), we examined the corresponding region on the opposite side ($n\sigma_\pi >4$), where the embedding provides excellent data description. If the embedding accurately describes the entire data region, we expect similar trends in the $n\sigma_\pi<-4$ regions. The $\delta_{loss}$ is calculated as the fraction of the true pair in the $|n\sigma_\pi| >4$ regions, 
+\begin{equation}
+    \delta_{loss} = \frac{N_{true,|n\sigma_\pi|>4}}{N_{true}}
+\end{equation}
+Figure \ref{fig:sysloss} displays the $\delta_{loss}$ for JP0, JP1, and JP2 triggers. There is no trigger dependence in the $\delta_{loss}$, which is about 6\% in the overall mass region.
+
+\drawgraphics{0.7}{Results/CrossSection2012/PrelimResults/nsigma2d_mbin0.pdf}{Reconstructed $n\sigma_{\pi^+}$ vs $n\sigma_{\pi^-}$ of a true \dipion pair in the lowest invariant mass bin.}{fig:nsigma2d}
+\drawgraphics{0.8}{Results/CrossSection2012/PrelimResults/sys_loss.pdf}{Systematic uncertainty associated with the $f_{loss}$.}{fig:sysloss}
+
+\subsubsection{Cross Section Discrepancy Between Triggers ($\delta_{trg}$)}
+After correcting all the triggered cross-sections, a discrepancy remains, as shown in Figure \ref{fig:trgeffsys}, which displays the relative difference between the triggered and weighted average (final) cross section. This difference represents a systematic uncertainty associated with the trigger effect. Instead of using a weighted average, we calculate the maximum offset between any triggered cross-section and the final cross-section as our systematic uncertainty.
+
+It is reasonable to expect this effect to be more pronounced in the lower mass bins and less in the higher mass bins. However, we observe a larger difference in the higher mass bins, which we attribute to statistical fluctuations resulting from low statistics. To mitigate this, we combine the highest three bins for each trigger, as shown by the solid lines in figure \ref{fig:trgeffsys}. Then, we apply a single maximum offset value out of all triggers in those three bins, where the maximum offset comes from the JP0 trigger.
+\begin{equation}
+    \delta_{trg} = Max(\delta_{trg, JP0},\delta_{trg, JP1},\delta_{trg, JP2})
+\end{equation}
+
+\drawgraphics{0.8}{Results/CrossSection2012/PrelimResults/sys_trigger_eff_fitted.pdf}{Trigger efficiency systematic uncertainty as a maximum relative difference between the triggered to the total cross-section. The last three bins are combined, and a single value of $\delta_{loss}$ is applied to those bins.}{fig:trgeffsys}
+
+\subsubsection{Embedding Sample Statistical Uncertainty ($\delta_{embstat}$)}
+The statistical fluctuation due to the embedding sample statistics is calculated from the covariance of the response matrix used for the unfolding. The diagonal element ($N_i$) for each cross-section bin $i$ of the covariance matrix gives the statistical uncertainty of the embedding sample: 
+\begin{equation}
+    \delta_{N, i} = \sqrt{N_i}
+\end{equation}
+The $\delta_{N, i}$ is statistical fluctuation at the unfolding level, which is propagated to the cross-section level by multiplying with the same correction factor ($f_{xsec} = \frac{f_{fake}*f_{loss}}{L*BW*\epsilon_{trg}*\epsilon_{trk}}$) applied for the cross-section (equation \ref{eq:xsec}):
+ \begin{equation}
+     \delta_{embstat, i} = f_{xsec, i}\times \delta_{N,i}
+ \end{equation}
+ The $\delta_{embstat, i}$ is calculated for each trigger using the diagonal element of the covariance matrices, shown in figure \ref{fig:covmatrix}. The weighted average of all $\delta_{embstat, i}$ values from all triggers is then applied as a systematic uncertainty due to the embedding sample statistics to the final cross-section result.
+ 
+\drawgraphics{1.0}{Results/CrossSection2012/PrelimResults/unfold_cov_matrix.pdf}{Covariance matrices of the response matrix for JP0, JP1, and JP2 triggers from left to right, respectively.}{fig:covmatrix}
+
+
+\subsubsection{Total Systematic Uncertainty ($\delta\sigma_{sys}^{Syst.}$)}
+
+The total systematic uncertainties for the final cross-section is the quadrature sum of all the systematic uncertainties discussed above. The weighted averages of all triggered cases are the $\delta_{fake}$ and $\delta_{loss}$. The $\delta_{bias}$ is calculated for the combined trigger, which directly applies to the final cross-section. The $\delta_{trg}$ is also directly applied to the final cross-section as it is calculated as the maximum discrepancy between the triggered and the final cross-section. 
+
+\begin{equation}
+    \delta\sigma_{mes}^{Syst.} = \sqrt{\delta_{trg}^2 + \delta_{fake}^2 + \delta_{loss}^2 + \delta_{bias}^2+ \delta_{embstat}^2}
+\end{equation}
+
+Figure \ref{fig:syserr} displays a breakdown of each contributing systematic uncertainty to the final cross-section. The dominant systematic uncertainty comes from the trigger effect at the final cross-section.  The table \ref{tab:syserr} presents numerical values of all the systematic uncertainties.  
+ 
+\begin{table}
+    \centering
+    \begin{tabular}{ccccccc}
+    \hline
+    Bin No.& $\delta_{trg}$ & $\delta_{fake}$ & $\delta_{loss}$ & $\delta_{bias}$ & $\delta_{embstat}$ & $\delta\sigma_{mes}^{Syst.}$\\
+    \hline
+    \input{Results/CrossSection2012/PrelimResults/syserr_numbers}
+    \end{tabular}
+    \caption{Final systematic uncertainties. }
+    \label{tab:syserr}
+\end{table}
+
+\drawgraphics{0.9}{Results/CrossSection2012/PrelimResults/sys_err_all.pdf}{Breakdown of systematic uncertainties contributing to the final cross-section result.}{fig:syserr}
+
+
+\section{Final Cross Section Result}
+
+\subsection{PYTHIA Cross Section}
+The PYTHIA cross section is calculated using the standalone PYTHIA events from the embedding sample used in this analysis. All PYTHIA events are used, and the fiducial kinematic cuts on track $p_T$ and $\eta$, as applied in the measured cross-section (see table \ref{tab:finalcuts}), are retained at the PYTHIA level as well. The PYTHIA pions are selected using \emph{pdg} codes (211 for $\pi^+$ and -211 for $\pi^-$). The \dipion construction procedure is the same as in the measured construction, as discussed in section \ref{subsec:evtsel}.  
+
+ As the embedding sample is produced in the 13 partonic $p_T$ ranges from 2 GeV to infinity, PYTHIA unpolarized \dipion cross-section is calculated for each of the partonic $p_T$ bins. The final cross section combines cross sections from all partonic bins. The total number of \dipion events ($N_{p_T}^{\pi^+\pi^-}$) are counted and binned as a function of \mpair for each partonic $p_T$ bins. The PYTHIA cross-section binning is the same as in the measured cross-section. The number of collision events processed ($N_{p_T}^{pro}$), which is smaller than the number of events tried or generated, and the partonic cross section ($\sigma_{p_T}$) is used to calculate luminosity ($L_{p_T}$) for each partonic $p_T$ bin as,
+\begin{equation}
+    L_{p_T} = \frac{N_{p_T}^{pro}}{\sigma_{p_T}}
+\end{equation} 
+The unpolarized \dipion cross-section for each $p_T$ bin is then calculated as, 
+\begin{equation}
+    \frac{d\sigma_{p_T}^{\pi^+\pi^-}}{dM^{\pi^+\pi^-}}= \frac{N_{p_T}^{\pi^+\pi^-}}{L_{p_T}*BinWidth}
+\end{equation}
+
+\begin{table}
+    \centering
+    \begin{tabular}{cccccccc}
+     \hline \hline
+    \input{Results/CrossSection2012/PrelimResults/fpythia_events_lum}  
+    \end{tabular}
+    \caption{PYTHIA number of events and luminosity per partonic $p_T$ bins. Cross-section ($\sigma_{p_T}$) is in picobarn ($pb$), luminosity (L) is in $pb^{-1}$, and partonic $p_T$ is in GeV/c. }
+    \label{tab:pyth_num}
+\end{table}
+
+ The final cross-section is the sum of all cross-sections from each of the partonic $p_T$ bin, which is shown (in black) in figure \ref{fig:xsecall} (top panel), which follows a similar trend to the measured cross-section. The agreement of PYTHIA with the measured cross-section is within $10\%$ up to $M_{inv}^{\pi^+\pi^-}\sim 2.25$ GeV/$c^2$, above which the disagreement grows up to $\sim 50\%$.
+
+\subsection{{Measured cross-section}}
+The measured cross section is the weighted average of JP0, JP1, and JP2 triggered cross sections, shown in red in the top panel of figure \ref{fig:xsecomb}, where the uncertainty is the quadrature sum of statistical and systematic uncertainties. The absolute PYTHIA cross-section is also included (shown in black) for comparison. The bottom panel shows the final systematic uncertainty (green band), the statistical uncertainty (red band), and the relative difference between the PYTHIA and the measured cross section (black closed circle) relative to the measured cross section. In addition, the relative difference between the JAM DiFF prediction  and the final cross section is shown in dashed blue lines. The 10\% uncertainty from the luminosity measurement is not included in the final uncertainty.   
+
+The theory prediction is obtained from the author of Ref. \cite{Cocuzza:2023oam}; the reference also provides detailed fitting parameters and procedures. The JAM DiFF Prediction accounts for quark and gluon fragmentation to the \dipion. The presented result is the mean and average of about 300 replicas, and the uncertainty is purely statistical. The theory curve covers only the lower \minv\ range ($< 1.6$ GeV/$c^2$), provided the existing framework is limited to the lower mass range within which the experimental result agrees with the theory. 
+ 
+\drawgraphics{1}{Results/CrossSection2012/PrelimResults/xsec_MoneyPlotwJAM.pdf}{Top panel: measured unpolarized \dipion cross-section, PYTHIA cross-section, and theory prediction from JAM collaboration as a function of the \mpair.
+Bottom panel: Relative difference between the measured and the PYTHIA cross-section on the right y-axis (Ratio = $\frac{d\sigma_{pyth}/dM-d\sigma_{mes}/dM}{d\sigma_{mes}/dM}$), and relative statistical (($\frac{\delta\sigma}{\sigma})_{mes}^{Stat.}$) and systematic (($\frac{\delta\sigma}{\sigma})_{mes}^{Syst.}$) errors on the left y-axis. }{fig:xsecomb}
+
+\begin{table}
+\centering
+\begin{tabular}{cccccc}
+\hline
+$M (GeV/c^2)$ & $d\sigma^{\pi^+\pi^-}_{mes} (pb)$&$\delta\sigma^{Stat.}_{mes} (pb)$&$d\sigma^{\pi^+\pi^-}_{pyth} (pb)$&$\delta\sigma_{pyth}^{Stat.} (pb)$&$(\delta\sigma/d\sigma)^{Syst.}_{mes}$\\
+\hline
+\input{Results/CrossSection2012/PrelimResults/fxsec_values}
+\end{tabular}
+\caption{Final cross-section results.}
+\end{table}
+
+

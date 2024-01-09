@@ -1,0 +1,607 @@
+% I'm putting the appendix material into this one file.
+% For the real thing, it is better to split the different appendices
+% into different files.
+
+\chapter{Run 2015 IFF Analysis}
+
+\newcommand{\sigmatpc}{$n\sigma_\pi^{TPC}\ $}
+\newcommand{\sigmatof}{$n\sigma_\pi^{TOF}\ $}
+\newcommand{\tpcortof}{$S^{TPCorTOF}\ $}
+\newcommand{\tpconly}{$S^{TPC}\ $}
+\newcommand{\tpcntof}{$S^{TPC\&TOF}\ $}
+
+\section{PID Systematic Studies: After Preliminary}
+The large systematic uncertainty in the asymmetry results is dominated by the PID, which was estimated by following a more traditional approach relying only on the TPC $dE/dx$ only. The size of systematic uncertainty is as expected, as the analysis sits in the momentum region (track $p_T>$1.5 GeV/$c$) where all hadronic species $dE/dx$ bands almost overlap. Another PID detector, TOF, alone isn't useful as it cannot provide a good PID in this regime. 
+
+Alternatively, the simultaneous use of both PID detectors appears to be useful in understanding the systematic uncertainty associated with the PID. Similar to the $n\sigma$ in the TPC (\sigmatpc), TOF also provides $n\sigma$ (\sigmatof) information which is useful for the PID. The simultaneous use of the TPC and TOF PID requires a track to have both pieces of information. However, the TOF misses most of the time, which excludes many tracks leading to a reduction in the \dipion events by more than 50\% (in run 2015 sample). 
+
+To quantify PID systematic uncertainty alternatively, three different data samples based on the PID selection cuts applied are considered:
+\begin{itemize}
+    \item Pure TPC sample (\tpconly): Preliminary result discussed in Chapter \ref{chapter:iff} is based on this sample where only \sigmatpc is used for the PID. This sample has the highest background fraction. 
+    \item TPC and/or TOF sample (\tpcortof):  This sample uses the TOF PID, in addition to the TPC, if TOF information is available. Otherwise, only TPC PID is used. This sample has a reduced background than the \tpconly sample, but still, significant background enters from the tracks that don't have TOF. 
+    \item TPC and TOF sample (\tpcntof): In this sample, all the tracks require to have both the TPC and TOF information, and both PIDs are used to get high-purity pions. This sample removes up to $\sim 99 \%$ of the background, and a high-purity sample is obtained at the expense of 55\% of the total statistics. 
+\end{itemize}
+
+Additionally, the modification in the multi-gaussian fit estimating particle fractions in the pion signal region is reconsidered. Based on the momentum dependence of the $dE/dx$, it is challenging to identify protons and kaons as these particles almost overlap in the higher momentum region $p>1$ Gev/$c$, where this analysis sits. This issue can be resolved by accommodating kaon and proton into a single Gaussian, which is a reasonable approach as these species are almost inseparable in this region, and there is no need for separate identification.   
+
+Furthermore, the different PID selection cut is employed for the tracks with TPC and TOF information. Figure \ref{fig:nsigma_tpcvstof} shows a 2D plot of \sigmatpc (along $y-$axis) and \sigmatof (along $x-$axis) for $\pi^+$ in varying \ptp\ bins. The central blob represents the pion, and the blobs on the right are kaons and protons, respectively. The kaons and protons move closer as the \ptp\ increases and become inseparable. The proton and kaon contribution can be removed significantly by employing a polynomial cut, removing those background regions. What we left off after removing these backgrounds is displayed in figure \ref{fig:aftercut_tpcvstof}, where mostly the pion and electrons are present. As electrons are well separated, the multi-gaussian fit on $n\sigma_\pi$ would result in high purity pions.
+
+
+Figure \ref{fig:b4naftercut} compares the $n\sigma_\pi$ distribution  between the \tpconly and \tpcortof samples, where the effect of the polynomial cut is visible, which only reduces the proton and kaon backgrounds as intended. The mult-gaussian fit accounting proton+kaon as single species for \tpcortof sample is shown in figure \ref{fig:fit_tpcortof}, where the pion fraction reaches up to 96\% in the lowest \ptp bin; However, the effect is small in the higher \ptp\ region. 
+
+The multi-gaussian fit for \tpcntof sample, corresponding to the figure \ref{fig:aftercut_tpcvstof}, is shown in figure \ref{fig:fit_tpcntof}. In the lower \ptp\ region, this approach successfully removes the proton+kaon background, and negligible background contribution appears in the higher region. The \dipion level purity for \tpcortof and \tpcntof samples in all asymmetry kinematic bins are shown in figure \ref{fig:pairfrac_after}. 
+
+\begin{figure}
+    \centering	
+    \includegraphics[scale=0.7]{Results/IFF2015/AfterPrelmPID/pionnSigma_TOFvsTPC.pdf}
+    \caption{$n\sigma_{\pi^+}$(TPC) vs $n\sigma_{\pi^+}$(TOF) in $\eta > 0$, in different $p_T$ bins for \tpcntof sample.}
+    \label{fig:nsigma_tpcvstof}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.7]{Results/IFF2015/AfterPrelmPID/pionnSigma_TOFvsTPC_afterCut.pdf}
+        \caption{$n\sigma_{\pi^+}$(TPC) vs $n\sigma_{\pi^+}$(TOF) in $\eta > 0$, in different $p_T$ bins after polynomial PID cut for \tpcntof sample.}
+        \label{fig:aftercut_tpcvstof}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.7]{Results/IFF2015/AfterPrelmPID/pionnSigma_B4andAfterCutWithPrelm.pdf}
+	\caption{$n\sigma_{\pi^+}$ before (\textcolor{black}{black}) and after (\textcolor{red}{red}) polynomial TOF cut. \textcolor{blue}{Blue} curve is used for preliminary PID.}
+	\label{fig:b4naftercut}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.7]{Results/IFF2015/AfterPrelmPID/pionFit_pTbinPosGt.pdf}
+	\caption{$n\sigma_\pi$ multi-gaussian fit in $p_T$ bins, for $charge>0$, $\eta >0$ from \tpcortof sample.}
+	\label{fig:fit_tpcortof}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.7]{Results/IFF2015/AfterPrelmPID/pionFit_pTbinPosGtTOFonly.pdf}
+	\caption{$n\sigma_\pi$ multi-gaussian fit in $p_T$ bins, for $charge>0$, $\eta >0$ from \tpcntof sample.}
+	\label{fig:fit_tpcntof}
+\end{figure}
+
+
+\begin{figure}
+\begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.5]{Results/IFF2015/AfterPrelmPID/newpionpurityStTOFPt.pdf}
+    %\caption{$\pi^+\pi^-$ fraction in $p_T$ bins.}
+    %\caption{}
+    \label{pt}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.5]{Results/IFF2015/AfterPrelmPID/pionpurityStTOF_M.pdf}
+%\caption{$\pi^+\pi^-$ fraction in $M_{inv}$ bins.}
+%\caption{}
+\label{minv}
+\end{minipage}		
+\begin{minipage}{0.5\textwidth}
+\centering
+\includegraphics[scale=0.5]{Results/IFF2015/AfterPrelmPID/pairpurityStTOF_Eta.pdf}
+%\caption{$\pi^+\pi^-$ fraction in $\eta$ bins.}
+%\caption{}
+\label{eta}
+\end{minipage}		
+\caption{$\pi^+\pi^-$ fractions for different purity samples.}
+\label{fig:pairfrac_after}
+\end{figure}
+
+We have used these three samples of significantly different pion purity to estimate the PID systematic uncertainty. First, the background asymmetry contribution is quantified by measuring and comparing asymmetries from all three samples. Figures \ref{fig:pidsys_mbin}-\ref{fig:pidsys_autintm} show  such asymmetries compared with the preliminary results (\tpconly sample). Surprisingly, albeit with different background sizes, asymmetries are consistent within the statistical uncertainty signaling that the background asymmetries are negligible. This strongly ruled out the assumption that the background asymmetries are ``about the same size" as the signal asymmetries while assigning PID systematic uncertainty scaling the signal asymmetry linearly by the background fraction. 
+
+The smaller size of the background asymmetry is implied from the measurement in the signal region, which needs further proof. This is possible by measuring asymmetry for the background in the \tpcntof sample. The defined signal and the background regions are depicted in figure \ref{fig:pisignal}. Provided limited statistics in the background region, asymmetry as a function  of \minv\ with \ptp\ integrated and as a function of \ptp\ with \minv\ integrated is measured, which are shown in figure \ref{fig:autbkg}.
+Within the statistical uncertainty, all the background asymmetries are consistent with zero. 
+
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{Results/IFF2015/AfterPrelmPID/pidsysAsymComparison_AutVsMinv.pdf}
+    \caption{\aut\ for a varying pair purity samples. The purity is varied by applying PID cuts using TPC and TOF $n\sigma_\pi$.}
+    \label{fig:pidsys_ptbin}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{Results/IFF2015/AfterPrelmPID/pidsysAsymComparison_AutVspT.pdf}
+    \caption{\aut\ for a varying pair purity samples. The purity is varied by applying PID cuts using TPC and TOF $n\sigma_\pi$.}
+    \label{fig:pidsys_mbin}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{Results/IFF2015/AfterPrelmPID/intEta_AsymSignalDiff.pdf}
+    \caption{\aut\ in \etap\ bins for varying purity samples.}
+    \label{fig:pidsys_auteta}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{Results/IFF2015/AfterPrelmPID/intM_AsymSignalDiff.pdf}
+    \caption{\aut\ in \mpair bins for varying purity samples.}
+    \label{fig:pidsys_autintm}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{Results/IFF2015/AfterPrelmPID/pionsignal.pdf}
+        %\captionof{figure}{$\pi^\pm$ signal after PID cut.}
+        \label{fig:pisignal}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.3]{Results/IFF2015/AfterPrelmPID/pionbkg.pdf}
+        %\captionof{figure}{$p$ and $K$ background after PID cut.}
+        \label{fig:pibkg}
+    \end{minipage}
+    \caption{Left:  pion signal Right: Pion background.}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{0.45\textwidth}	
+		\centering
+		\includegraphics[scale=0.3]{Results/IFF2015/AfterPrelmPID/intM_BkgAsym.pdf}
+		%\captionof{figure}{$A_{UT}^{bkg}$ vs $M_{inv}$, $p_T$ integrated.}
+		\label{bkgm}
+	\end{minipage}
+        \begin{minipage}{0.45\textwidth}	
+	\centering 
+	\includegraphics[scale=0.3]{Results/IFF2015/AfterPrelmPID/intpT_BkgAsym.pdf}
+	%\captionof{figure}{$A_{UT}^{bkg}$ vs $p_{T}$, $M_{inv}$ integrated.}
+	\label{bkgpt}
+        \end{minipage}
+        \caption{Left: $A_{UT}^{bkg}$ vs $M_{inv}$, $p_T$ integrated. Right: $A_{UT}^{bkg}$ vs $p_{T}$, $M_{inv}$ integrated.}
+        \label{fig:autbkg}
+\end{figure}
+
+Observing consistency between the signal asymmetries of different background sizes and zero background asymmetry suggests a different approach to quantifying PID systematic uncertainty. The background effect is thus quantified as the absolute difference between the \tpcortof and \tpcntof samples. Moreover, the asymmetry from \tpcortof is considered as a final asymmetry as it poses an improved pion fraction without compromising statistics. Figure \ref{fig:pidsys_diff} shows such difference in \aut\ in multi-binning differential in \ptp\ and \minv\ , and the corresponding final result is displayed in figure \ref{fig:finalaut_mbin}. This way of quantifying accurately reflects the background effects. The new PID systematic uncertainty is small within the statistical uncertainties. A similar level of improvement in the PID systematic uncertainty is observed in all kinematic bins. These improved results, which are not preliminary, will undergo final publication.  
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{Results/IFF2015/AfterPrelmPID/pidsysAbsDifferencePlot_Minv.pdf}
+    \caption{Absolute difference in asymmetries between \tpcortof and \tpcntof samples. The difference is assigned as a systematic uncertainty associated with the PID.}
+    \label{fig:pidsys_diff}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{Results/IFF2015/AfterPrelmPID/finalAut_Minv.pdf}
+    \caption{Final \aut\ as a function of \minv\ differential in \ptp\ and \etap\ from \tpcortof sample, with new PID systematic uncertainty.}
+    \label{fig:finalaut_mbin}
+\end{figure}
+
+
+
+\clearpage
+\section{Run 2015 Data And Embedding Comparison}
+\label{app:run15dataembed}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/ptPairJP1.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/ptPairJP2.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[height=0.9\textwidth,width=0.9\textwidth]{Results/IFF2015/DatEmbed/ptPairJPsum.png}
+\end{minipage}
+\caption{\ptp\  comparison for JP1, JP2, and combined JP from left to right respectively.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/MinvJP1.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/MinvJP2.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[height=0.9\textwidth,width=0.9\textwidth]{Results/IFF2015/DatEmbed/MinvJPsum.png}
+\end{minipage}
+\caption{\minv\  comparison for JP1, JP2, and combined JP from left to right respectively.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/coneJP1.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/coneJP2.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[height=0.9\textwidth,width=0.9\textwidth]{Results/IFF2015/DatEmbed/coneJPsum.png}
+\end{minipage}
+\caption{Cone  comparison for JP1, JP2, and combined JP from left to right respectively.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiRBJP1.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiRBJP2.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[height=0.9\textwidth,width=0.9\textwidth]{Results/IFF2015/DatEmbed/phiRBJPsum.png}
+\end{minipage}
+\caption{$\phi_{R}(Blue)$  comparison for JP1, JP2, and combined JP from left to right respectively.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiRYJP1.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiRYJP2.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[height=0.9\textwidth,width=0.9\textwidth]{Results/IFF2015/DatEmbed/phiRYJPsum.png}
+\end{minipage}
+\caption{$\phi_{R}(Yellow)$  comparison for JP1, JP2, and combined JP from left to right respectively.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiSBJP1.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiSBJP2.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[height=0.9\textwidth,width=0.9\textwidth]{Results/IFF2015/DatEmbed/phiSBJPsum.png}
+\end{minipage}
+\caption{$\phi_{S}(Blue)$  comparison for JP1, JP2, and combined JP from left to right respectively.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiSYJP1.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiSYJP2.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[height=0.9\textwidth,width=0.9\textwidth]{Results/IFF2015/DatEmbed/phiSYJPsum.png}
+\end{minipage}
+\caption{$\phi_{S}(Yellow)$  comparison for JP1, JP2, and combined JP from left to right respectively.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiRSYJP1.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiRSYJP2.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[height=0.9\textwidth,width=0.9\textwidth]{Results/IFF2015/DatEmbed/phiRSYJPsum.png}
+\end{minipage}
+\caption{$\phi_{RS}(Yellow)$  comparison for JP1, JP2, and combined JP from left to right respectively.}
+\end{figure}
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiRSBJP1.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.2]{Results/IFF2015/DatEmbed/phiRSBJP2.png}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+\includegraphics[height=0.9\textwidth,width=0.9\textwidth]{Results/IFF2015/DatEmbed/phiRSBJPsum.png}
+\end{minipage}
+\caption{$\phi_{RS}(Blue)$  comparison for JP1, JP2, and combined JP from left to right respectively.}
+\end{figure}
+
+\pagebreak
+
+\section{Run 15 Spin Patterns and Configurations}
+\label{app:spinpattern}
+\begin{longtable}{|c|c|c|c|}
+       \endfirsthead
+       \endhead
+       \endfoot
+       \endlastfoot
+        \hline
+      Blue   &  Yellow & 8-bit & Decimal Eqv.\\
+      \hline
+       Up    &  Up     & 0011 0011 & 51 \\
+       Down & Down & 0101 0101 & 85 \\
+       Up & Down & 0011 0101 & 53 \\
+       Down & Up & 0101 0011 & 83 \\
+       \hline
+    \caption{Beam spin configuration.}
+    \label{tab:spinconf}
+\end{longtable}
+
+\section{Run List}
+\label{appsec:runlist2015}
+\input{Results/IFF2015/Preliminary/2015runlist}
+%\section{Particle Fractions}
+%\input{Results/IFF2015/Preliminary/run15pidtable}
+%\input{Results/IFF2015/Preliminary/run15pidEtaBin}
+
+\section{Asymmetry Results}
+
+\subsection{$A_{UT}$ vs \minv (Multi-Binning)}
+\input{Results/IFF2015/Preliminary/table_autvsm_miltibin}
+
+\subsection{$A_{UT}$ vs \minv (Integrated \ptp)}
+\input{Results/IFF2015/Preliminary/table_autvsm_intpt}
+
+\subsection{$A_{UT}$ vs \ptp (Multi-Binning)}
+\input{Results/IFF2015/Preliminary/table_autvspt_multibin}
+
+\subsection{$A_{UT}$ vs \etap }
+\input{Results/IFF2015/Preliminary/table_autvseta}
+
+\subsection{$A_{UT}$ vs \minv (Highest \ptp Bin) }
+\input{Results/IFF2015/Preliminary/table_autvspt_highestpt}
+
+\subsection{Blue And Yellow Beam asymmetry}
+
+RHIC has both beams, yellow and blue, polarized. We have taken advantage of this by measuring asymmetries from both beams. Since the beam conditions are similar during collisions, we expect similarities in the asymmetry of both beams. This provides a systematic check on the asymmetry measurement.
+
+Figures \ref{fig:autetaBY}-\ref{fig:autMBYLt} show asymmetries for the blue and yellow beams in the same kinematic bins. Within the statistical uncertainties, both beam asymmetries are consistent with each other, which serves as proof of the framework employed for the asymmetry extraction. Moreover, utilizing both beams doubles the statistics, providing higher statistical precision.
+
+\drawgraphics{0.6}{Results/IFF2015/Preliminary/BlueYellowAut/Eta/AsymVsEta_ConeLt7_9bin.pdf}{$A_{UT}$ vs \etap}{fig:autetaBY}
+
+\drawgraphics{0.8}{Results/IFF2015/Preliminary/BlueYellowAut/pT/AsymmetryVspT_Cone.7_Backward.pdf}{$A_{UT}$ vs \ptp,  \etap $<0$}{fig:autpTBYLt}
+
+\drawgraphics{0.8}{Results/IFF2015/Preliminary/BlueYellowAut/pT/AsymVspT_Cone.7_Forward.pdf}{$A_{UT}$ vs \ptp, \etap $> 0 $}{fig:autpTBYLt}
+
+\drawgraphics{0.8}{Results/IFF2015/Preliminary/BlueYellowAut/Mass/AsymmetryVsMinv_Backward.pdf}{$A_{UT}$ vs \minv, \etap $<0$}{fig:autMBYLt}
+
+\drawgraphics{0.8}{Results/IFF2015/Preliminary/BlueYellowAut/Mass/AsymVsMinv_EtaGt0_Forward.pdf}{$A_{UT}$ vs \ptp, \etap $> 0 $}{fig:autpTBYLt}
+
+\drawgraphics{0.55}{Results/IFF2015/Preliminary/BlueYellowAut/intM/integrated_AsymVsMinv_ForwardJPfinal.pdf}{$A_{UT}$ vs \minv, \etap $> 0 $, integrated \ptp.}{fig:autMBYGt}
+
+\drawgraphics{0.55}{Results/IFF2015/Preliminary/BlueYellowAut/intM/integrated_AsymVsMinv_BackwardJPfinal.pdf}{$A_{UT}$ vs \minv, \etap $< 0 $, integrated \ptp.}{fig:autMBYLt}
+
+\clearpage
+\subsection{Random \textbf{R} Asymmetry}
+\label{app:randomaut}
+The relative difference between the momentum vectors of two pions, $\vec{R} (=1/2(\vec{p}{\pi^+} - \vec{p}{\pi^-}))$, is crucial to access quark transverse spin. The charge order of the pions determines the direction of this vector, which needs to be fixed; otherwise, the vector direction gets randomized, leading to diluted asymmetry.
+
+To test this argument, the asymmetry is produced by randomizing the direction of $\vec{R}$. In $\vec{R} =1/2(\vec{p}{\pi^+} - \vec{p}{\pi^-})$, the constraint that the first vector should be $\pi^+$ and the second should be $\pi^-$ is removed. In every pair, whichever pion comes first in the loop serves as the first hadron vector, thus the pair could be either \dipion or $\pi^-\pi^+$. The random asymmetries are shown in Figures \ref{fig:random_aut_eta}-\ref{fig:random_aut_pt} in the \etap$>0$ region. All the asymmetries are consistent with zero. This confirms that the analysis framework is implemented and working correctly.
+
+
+\drawgraphics{0.6}{Results/IFF2015/RandomR/moneyplot_AutVsEtaRandomR.pdf}{ The direction of \textbf{R} is randomize by randomizing charge ordering.}{fig:random_aut_eta}
+
+\drawgraphics{0.8}{Results/IFF2015/RandomR/moneyplot_AutVsMinv_m1to2.pdf}{ The direction of \textbf{R} is randomize by randomizing charge ordering.}{fig:random_aut_minv}
+
+\drawgraphics{0.8}{Results/IFF2015/RandomR/moneyplot_AutVspT_m1to2.pdf}{ The direction of \textbf{R} is randomize by randomizing charge ordering.}{fig:random_aut_pt}
+
+
+
+\chapter{Run 12 Unpolarized Cross Section Measurement}
+
+\section{Data-Embedding Comparison}
+  \label{embed_comparison}
+ 
+\subsection{Vertex Shape Correction}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/ZVertexDiffFit.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/ZVertexDiffFit_withZweight.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/ZVertexDiffImpact_M_JP0.pdf}
+	\end{minipage}
+\caption{Vertex shift (\textit{left}), after vertex correction (\textit{middle}), and impact of vertex correction in invariant mass distribution for JP0 trigger.}
+\label{vzcorrection}
+\end{figure}
+
+For the embedding sample to be matched with the data, the event z-vertices should be matched. Once z-vertex matches, other distributions should also be matched. Figure \ref{vzcorrection}(\emph{left}) shows the z-vertices comparison between data and embedding, where embedding vertex distribution is shifted to the left. This mismatch cannot be ignored and needs correction. It is easy to fix this mismatch in physics analysis by fitting the ratio between the two distributions (\emph{bottom panel}) with the best polynomial fit. The fit equation, with the z-vertex as a variable, can then be applied as a weight to the z-vertex, which should fix the mismatch. The middle plot shows the comparison after the z-vertex shape correction. The impact of this shape correction is checked by comparing the same distribution before and after the correction and finding that it has NO impact on the rest of the distributions, as shown in the right plot. 
+
+In this analysis, only JP0, JP1, and JP2 events are used, whereas, in the data, the events are heavily prescaled during production. This means that only one event is kept for every event (\emph{prescale}). In data, the triggering algorithm checks the highest threshold trigger, for example, JP2, followed by lower threshold triggers, for example, JP1, and JP0, in that order. An event meeting JP2 criteria will meet all the lower trigger categories. This may occur trigger overlapping and have a chance that the same event would be counted for each trigger. The prescale factor is applied at the production level to overcome trigger overlapping issues in the data. Prescale for the JP2 is always one, and the prescale value is larger for the lower threshold triggers. 
+
+However, the embedding sample takes everything, as the simulation has no triggering scheme. Trigger information can be accessed using the trigger simulator in the embedding sample. The same prescale factors should be applied to replicate the triggering scheme  in the data and overcome trigger overlapping. Individual trigger event distributions can be directly compared with the data; however, one should be careful while combining all triggers in the embedding. For combined triggers, the correlation between data and embedding can be established as follows: 
+\begin{equation}
+\centering
+	H_{d,JP0} + H_{d,JP1} + H_{d,JP2} \leftrightarrow \frac{1}{p_{JP0}}H_{e,JP0} + \frac{1}{p_{JP1}} H_{e,JP0} +  \frac{1}{p_{JP2}} H_{e,JP2}
+\end{equation}
+where, $H$ is distributions from embedding(\emph{e}) and data(\emph{d}), and $p$ is prescale factor for each individual triggers JP0, JP1, and JP2. The following section includes data-embedding comparison plots for all three and combined triggers. Embedding distributions match well with the data.      
+
+
+%vertex shape correction ends 
+\subsection{Data-Embedding Comparison plots}
+%z-vertex distribution
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.3\linewidth}
+\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hVZ_JP0.pdf}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+	\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hVZ_JP1.pdf}
+\end{minipage}
+\begin{minipage}{0.3\linewidth}
+	\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hVZ_JP2.pdf}
+\end{minipage}
+\caption{Z-vertex distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+
+%pt distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htrackpT_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htrackpT_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htrackpT_JP2.pdf}
+	\end{minipage}
+	\caption{Hadrons $p_T$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+
+%eta distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htrackEta_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htrackEta_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htrackEta_JP2.pdf}
+	\end{minipage}
+	\caption{Hadrons $\eta$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+%phi distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htrackPhi_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htrackPhi_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htrackPhi_JP2.pdf}
+	\end{minipage}
+	\caption{Hadrons $\phi$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+%nsigmapion distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htracknSigmaPion_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htracknSigmaPion_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/htracknSigmaPion_JP2.pdf}
+	\end{minipage}
+	\caption{Hadrons n$\sigma\pi$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+    \label{fig:nsigmacomp}
+\end{figure}
+
+%pion pT distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpionpT_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpionpT_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpionpT_JP2.pdf}
+	\end{minipage}
+	\caption{Pion $p_T$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+
+%pion phi distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpionPhi_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpionPhi_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpionPhi_JP2.pdf}
+	\end{minipage}
+	\caption{Pion $\phi$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+
+%pion eta distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpionEta_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpionEta_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpionEta_JP2.pdf}
+	\end{minipage}
+	\caption{Pion $\eta$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}	
+
+%pion pair opening angle  distribution
+\begin{figure}[H]
+		\centering
+		\begin{minipage}{0.3\linewidth}
+			\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hCone_JP0.pdf}
+		\end{minipage}
+		\begin{minipage}{0.3\linewidth}
+			\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hCone_JP1.pdf}
+		\end{minipage}
+		\begin{minipage}{0.3\linewidth}
+			\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hCone_JP2.pdf}
+		\end{minipage}
+		\caption{$\pi^+\pi^-$opening angle (in $\eta-\phi$ space) distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+	
+%pion pair pT distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpTPair_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpTPair_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hpTPair_JP2.pdf}
+	\end{minipage}
+	\caption{$\pi^+\pi^-$ $p_T$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+
+%pion pair Invariant mass distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hMinv_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hMinv_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hMinv_JP2.pdf}
+	\end{minipage}
+	\caption{$M_{inv}^{\pi^+\pi^-}$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+
+%pion pair Invariant mass distribution
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hEtaPair_JP0.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hEtaPair_JP1.pdf}
+	\end{minipage}
+	\begin{minipage}{0.3\linewidth}
+		\includegraphics[scale=0.25]{./Results/CrossSection2012/Run12DatEmbPlotsWithZWeight/hEtaPair_JP2.pdf}
+	\end{minipage}
+	\caption{$\eta^{\pi^+\pi^-}$ distribution comparison for JP0, JP1, and JP2 from left to right respectively.}
+\end{figure}
+
+\section{Run List: 2012}
+\input{Results/CrossSection2012/RunList2012}
+%\addcontentsline{toc}{chapter}{APPENDIX}
+

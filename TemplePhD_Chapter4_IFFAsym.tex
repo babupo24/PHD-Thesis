@@ -1,0 +1,547 @@
+\chapter{\pip AZIMUTHAL CORRELATION ASYMMETRY}
+\label{chapter:iff}
+In this chapter, we will explore the precision measurement of the dihadron azimuthal correlation asymmetry \aut\ for the \pip\ in polarized proton-proton ($p^\uparrow p$) collisions based on the theoretical framework discussed in section \ref{sec:ifftheory}. This measurement is based on the STAR polarized $pp$ data from the Run 2015, which corresponds to the integrated luminosity, $L_{int}$, of $\sim $52 $pb^{-1}$, which can provide the most statistical precision in the asymmetry  in the valence quark region ($0.1<x<0.3$). I will discuss some of the asymmetry extraction methods, followed by a brief review of previous STAR measurements in the same framework. The rest of the chapter will provide the detail of the analysis. 
+
+\section{\aut\ Extraction Methods}
+In the STAR experiment, the asymmetry \aut\ can be extracted in $p^\uparrow p$ collisions by counting the number of dihadron pairs in different $\phi_{RS}$ bins for various beam polarization conditions (up and down). Two commonly employed methods for extracting \aut\ are discussed below.   
+\subsection{Relative Luminosity Method}
+The relative luminosity formula is given by
+
+\begin{equation}
+A_{UT}\ \sin \phi_{RS} = \frac{1}{P} \cdot \frac{N^\uparrow (\phi_{RS}) - r \cdot N^\downarrow (\phi_{RS})}{N^\uparrow (\phi_{RS}) + r \cdot N^\downarrow (\phi_{RS})},
+\end{equation}
+
+where $N^\uparrow (\downarrow)$ represents the number of dihadron pairs in each $\phi_{RS}$ bin when the beam is polarized up (down). The parameter $r$ corresponds to the ratio of the luminosities $L^\uparrow$ and $L^\downarrow$, while $P$ represents the absolute beam polarization.
+
+Since the observed asymmetry is expected to be small, it is crucial to have precise measurements of the luminosities at different beam polarizations. However, at STAR, the uncertainty associated with the luminosity measurement is significant. This introduces a large systematic uncertainty in the obtained physics results. Considering the challenges posed by the large systematic uncertainty, the method relying on luminosity measurements is not adopted in this particular measurement. Alternatively, the cross-ratio method that doesn't involve any detector-related parameters is employed.
+
+\subsection{Cross Ratio Method}
+The cross-ratio method, which eliminates the need for detector-related quantities and reduces associated systematic uncertainties, is extensively discussed in reference \cite{Ohlsen:1973wf}. In the following, we outline the derivation of the cross-ratio formula for the spin-$\frac{1}{2}$ analyzing power in a symmetric detector system.
+
+The cross section for a polarized spin-$\frac{1}{2}$ beam can be written as, 
+\begin{equation}
+    \label{eq:cr1}
+    I(\theta, \phi) = I_0 (\theta) [1+p_y A_y(\theta)],
+\end{equation}
+where $\theta$ is the scattering angle, $I_0$ is the unpolarized cross section at an scattering angle $\theta$, $p_y$ is $y-$ component of the beam polarization, and $A_y(\theta)$ is the analyzing power. In terms of $p^\uparrow p$ to dihadron channel, the above equation can be expressed as, 
+\begin{equation}
+    \label{eq:cr2}
+    I(\theta, \phi_{RS}) = I_{0,\phi_{RS}} (\theta) [1+P\ A_{UT}\ sin \phi_{RS} ], 
+\end{equation}
+where $P$ is the absolute polarization of the transversely polarized beam. 
+Then the number of dihadrons recorded in particular $\phi_{RS}$ bin when the beam is polarized up $N^\uparrow_{\phi_{RS}}$ is given by, 
+\begin{equation}
+    N^\uparrow(\phi_{RS}) = L^\uparrow I_{0,\phi_{RS}}[1+A_{UT}\ P\ sin\phi_{RS}],
+\end{equation}
+where $L^\uparrow$ is the luminosity when the beam is polarized up.
+In the same $\phi_{RS}$ bin, the dihadron counts when the polarization is flipped $N^\downarrow_{\phi_{RS}}$ is given by, 
+\begin{equation}
+    N^\downarrow(\phi_{RS})= L^\downarrow I_{0,\phi_{RS}}[1-A_{UT}\ P\ sin\phi_{RS}],
+\end{equation}
+where the negative sign is for the spin flipped.
+
+It is expected that, by the rotational symmetry in a perfectly symmetric detector, the observed counts in a $\phi_{RS}$ bin when beam polarization is $\uparrow$ should be similar in the opposite $\phi_{RS}$ bin shifted by $\pi$, i.e., $\phi_{RS}+\pi$, when the beam is polarized $\downarrow$. So, the counts in the $\phi_{RS}+\pi$ bin when beam polarization up, $N^\uparrow(\phi_{RS+\pi})$, is given by, 
+\begin{equation}
+    N^\uparrow(\phi_{RS} +\pi)= L^\uparrow I_{0,\phi_{RS}+\pi}[1-A_{UT}\ P\ sin\phi_{RS}],
+\end{equation}
+where the negative sign is from $sin(\phi_{RS}+\pi) = - sin \phi_{RS}$. Again, the counts in the $\phi_{RS}+\pi$ bin when spin is flipped, $N^{\downarrow}(\phi_{RS}+\pi)$, is given by, 
+\begin{equation}
+    N^\downarrow(\phi_{RS} +\pi)= L^\downarrow I_{0,\phi_{RS}+\pi}[1+A_{UT}\ P\ sin\phi_{RS}],
+\end{equation}
+where the sign is positive because of an extra negative sign from the spin-flip. Now, forming a geometric mean of counts from equivalent bins as, 
+\begin{equation}
+\label{eq:l}
+    \sqrt{N^\uparrow(\phi_{RS}) N^\downarrow(\phi_{RS}+\pi)} = \sqrt{L^\uparrow L^\downarrow I_{0,\phi_{RS}} I_{0,\phi_{RS}+\pi}}\ [1+A_{UT}\ P\ sin\phi_{RS}],
+\end{equation}
+and, 
+\begin{equation}
+\label{eq:r}
+    \sqrt{N^\downarrow(\phi_{RS}) N^\uparrow(\phi_{RS}+\pi)} = \sqrt{L^\uparrow L^\downarrow I_{0,\phi_{RS}} I_{0,\phi_{RS}+\pi}}\ [1-A_{UT}\ P\ sin\phi_{RS}]
+\end{equation}
+
+Solving equations \ref{eq:l} and \ref{eq:r} for $A_{UT}sin\phi_{RS}$, we get, 
+\begin{equation}
+\label{eq:crossratio}
+    A_{UT}\ sin\phi_{RS} = \frac{1}{P}\cdot \frac{\sqrt{N^\uparrow(\phi_{RS})N^\downarrow(\phi_{RS}+\pi)} -\sqrt{N^\downarrow(\phi_{RS})N^\uparrow(\phi_{RS}+\pi)}}{\sqrt{N^\uparrow(\phi_{RS})N^\downarrow(\phi_{RS}+\pi)} +\sqrt{N^\downarrow(\phi_{RS})N^\uparrow(\phi_{RS}+\pi)}}
+\end{equation}
+
+Equation \ref{eq:crossratio} is the cross-ratio formula, also called the ``geometric mean formula", which only involves the numbers without any  of the detector terms. This formula has a simple and elegant structure, which is why it has been widely used by STAR measurements, since the 2006 analysis-the first asymmetry analysis via dihadron channel in $p^\uparrow p$.
+
+\section{STAR \aut\ : Proof-of-principle And Global Impact}
+
+STAR reported the first measurement of \aut\  for \pip\  in $p^\uparrow p$ collisions at $\sqrt{s}=200$ GeV using Run 2006 data \cite{STAR:2015jkc}. This was followed by a measurement using Run 2011 data at $\sqrt{s}=500$ GeV \cite{STAR:2017wsi}. The 2006 dataset corresponds to an integrated luminosity of $L=1.8 \ \mathrm{pb}^{-1}$ and an average beam polarization of approximately 60\%, allowing for the exploration of the valence quark transversity in the range $0.15<x<0.30$. The 2011 data correspond to an integrated luminosity of 25 $\mathrm{pb}^{-1}$ with an average beam polarization of 53\% and covers a probing range in $x$ of about $0.05<x<0.2$.
+
+\begin{figure}
+    %\centering
+    \begin{subfigure}{0.8\linewidth}    
+    \centering
+    \includegraphics[scale=0.4]{Results/PreviousSTARIFF/IFF_fig2_200.png}
+    \subcaption{}
+    \label{subfig:auteta200}
+    \end{subfigure}
+    %\hfill
+    \begin{subfigure}{0.8\linewidth}    
+    \centering
+    \includegraphics[scale=0.4]{Results/PreviousSTARIFF/IFF_fig3_200.png}
+    \subcaption{}
+    \label{subfig:autmass200}
+    \end{subfigure}
+    %\captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{\textbf{STAR $A_{UT}$ at $\sqrt{s}=200\ GeV -$} \textbf{(a)}  $A_{UT}$ as a function of \minv (upper panel) and corresponding partonic variables $x$ and $z$ (fraction energy of fragmenting quark carried by the \pip pair) (lower panel) from the simulation. \textbf{(b)} $A_{UT}$ as a function of \etap (upper panel) and $x$ and $z$ in the lower panel.} 
+    \label{fig:aut200}
+\end{figure}
+Figure \ref{fig:aut200} shows the STAR \aut\ results at $\sqrt{s}=200$ GeV \cite{STAR:2015jkc}. Figure \ref{subfig:autmass200} depicts \aut\ as a function of the invariant mass (\minv) in two pseudorapidity bins, \etap $>0$ and \etap $<0$ in the top panel, whereas the bottom panel shows the partonic variables $x$ and $z$ (fractional energy of fragmenting quark carried by the \pip) from simulation in the same \minv\ bins. Figure \ref{subfig:auteta200} shows \aut\ as a function of \etap\ integrating over \minv\ and \ptp in the top panel and $x$ and $z$ in the bottom panel. The STAR \aut\ results at $\sqrt{s}=500$ GeV is shown in figure \ref{fig:aut500}. The signal differential in mass  in the forward \etap region plotted together with the STAR 2006. The theoretical prediction is shown in figure \ref{subfig:autmass500} and Figure \ref{subfig:auteta500} shows the \aut\ signal differential in \etap \ (top panel) and $x$ and $z$ in the corresponding \etap\ bins (bottom panel). 
+
+The measured \aut\ signal exhibits significant magnitudes in the \etap$>0$ (forward) region, corresponding to the higher $x$ range where transversity is expected to be sizable. Conversely, the observed signal is small in the \etap$<0$ (backward) regions, which probe low $x$ values. This observation suggests a dependence of transversity on $x$. Additionally, the forward $A_{UT}$ signal exhibits a peak around the $\rho$-meson mass ($\sim 0.77$ GeV/$c^2$). This characteristic is anticipated due to the interference between pions originating from different production channels as is discussed in section \ref{sec:ifftheory}. Figure \ref{subfig:autmass500} compares the STAR 2006 and 2011 measurements with the theoretical calculations in \minv\ bins. The measured asymmetries and the resonance peak align well with the theoretical predictions. 
+
+The STAR 2006 \aut\ data points obtained at $\sqrt{s}=200$ GeV have been incorporated into the global analysis for transversity extraction, alongside the SIDIS and $e^+e^-$ data \cite{Radici:2018iag}. Figure \ref{fig:h1} illustrates the behavior of $xh_1$ with and without the inclusion of the STAR data. Specifically, Fig. \ref{subfig:h1u} depicts the valence $u$-quark transversity ($xh_1^{u_v}$), while Fig. \ref{subfig:h1d} displays the valence $d$-quark transversity ($xh_1^{d_v}$) as functions of $x$. The dark band in Fig. \ref{subfig:h1u} and the light-hatched band in Fig. \ref{subfig:h1d} represent the inclusion of the STAR data, which is compared against the same result without the STAR data \cite{Radici:2015mwa}. Despite the statistical limitations, the impact of the STAR data is significant and results in notable improvements in constraining transversity in the valence quark region.
+
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.8\linewidth}    
+    \centering
+    \includegraphics[scale=0.4, trim=1.5cm 0.0cm 0.2cm 0.0cm]{Results/PreviousSTARIFF/AvsEtaPlot_v9.png}
+    \subcaption{}
+    \label{subfig:auteta500}
+    \end{subfigure}
+    \hspace{0.05em}
+    \begin{subfigure}{0.8\linewidth}    
+    \centering
+    \includegraphics[scale=0.4, trim=1cm 0.0cm 0.5cm 0.0cm]{Results/PreviousSTARIFF/TheoryComparison_v5.png}
+    \subcaption{}
+    \label{subfig:autmass500}
+    \end{subfigure}
+    %\captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{\textbf{STAR $A_{UT}$ at $\sqrt{s}=500\ GeV -$} \textbf{(a)} $A_{UT}$ as a function of \etap for $<p_T^{\pi^+\pi^-}> = 13 \ GeV/c$(top panel), and $x$ and $z$ in corresponding \etap bins (lower panel). \textbf{(b)} $A_{UT}$ as a function of \minv compared with the theory predictions from the SIDIS and $e^+e^-$ data  \cite{radici2016exploring} and STAR 2006 result.} 
+    \label{fig:aut500}
+\end{figure}
+
+\begin{figure}
+    %\centering
+    \begin{subfigure}{0.8\linewidth}    
+    \centering
+    \includegraphics[scale=0.6]{Results/PreviousSTARIFF/fig1a_h1u.png}
+    \subcaption{}
+    \label{subfig:h1u}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.8\linewidth}    
+    \centering
+    \includegraphics[scale=0.6]{Results/PreviousSTARIFF/fig1b_h1d.png}
+    \subcaption{}
+    \label{subfig:h1d}
+    \end{subfigure}
+    %\captionsetup{justification=raggedright,singlelinecheck=false}
+    \caption{ \textbf{Transversity $xh_1$ as a function of $x$ at $Q^2 = 2.4\ GeV^2$. The dark (blue) lines represent Soffer bounds. $-$} \textbf{(a)} Valence $u$-quark transversity. The dark band includes STAR $pp$, SIDIS, and $e^+e^-$, whereas the lighter band excludes the STAR data. \textbf{(b)} Valence $d$-quark transversity. The dark band only includes SIDIS and $e^+e^-$ data, and the lighter-hatched band is after including the STAR data. Significant improvement in the $xh_1$ because of the STAR data can be observed.} 
+    \label{fig:h1}
+\end{figure}
+
+The measurement conducted using the Run 2015 dataset (this measurement) provides the most precise determination of \aut\ at $\sqrt{s}=200$ GeV. Consequently, this measurement will greatly enhance the precision in constraining transversity in the valence quark region.
+
+\section{STAR Run 2015 IFF Analysis}
+
+\subsection{Dataset and Quality Analysis}
+To measure the IFF asymmetry, transversely polarized proton-proton collision data  from the STAR run 2015 at $\sqrt{s}=200$ GeV is utilized. The description of the data set is as follows:
+\begin{itemize}
+    \item Collision: proton-proton
+    \item Center-of-mass energy ($\sqrt{s}$): 200 GeV 
+    \item Beam polarization: transverse
+    \item Production year: year2015
+    \item Trigger Sets: production\_pp200trans\_2015
+    \item Production tag: P16id
+    \item Production library: SL16d
+    \item Integrated luminosity ($L_{int}$): $\sim 52\ pb^{-1}$
+\end{itemize}
+The data included in this analysis consists of collision events that are triggered by dominant jet patch triggers. We have chosen to focus on events that were triggered by JP1 and JP2 (labeled as "JP"), which make up about 90\% of the total events. Specifically, events are selected with offline triggered IDs (JP1: 480404,480414) and (JP2: 480401,480411). It's worth noting that two different offline trigger IDs were used for the JP triggers because the trigger ID was changed after one-third of the data was collected during the data-taking process.
+
+The data QA is performed at the event level, looking at the average of the quantities for every run. Runs with a run time of less than three minutes are excluded. In addition to the run time, the other primary criterion for a run  is to have JP-triggered events. Since this analysis is polarization sensitive, two fills reported with bad polarization patterns (fills 18749 and 18764 ) are excluded.
+
+
+For QA purposes, the following event and track quality cuts are applied,
+\begin{itemize}
+    \item Z-Vertex ($V_z$): $|V_z|<60$ cm
+    \item Vertex ranking ($V_{z,rank}$): $V_{z,rank}>1e6$
+    \item Track pseudorapidity ($\eta_{tr}$): $|\eta_{tr}|<1$
+    \item Track transverse momentum ($p_T$): $p_T > 1.5$
+    \item Track distance of closest approach ($dca$): $dca < 1$
+            \[
+            dca = \begin{cases}
+            2\ cm & \text{if } p_T < 0.5\ \text{GeV}, \\
+            2.5\ cm - p_T (1\ cm /GeV) & \text{if } 0.5< p_T< 1.5\ GeV, \\
+            1\ cm & \text{if } p_T \geq 1.5 \ GeV
+            \end{cases}
+            \]
+    
+    \item Number of fit points (nHitsFit): $nHitsFit>25$
+    \item  Fit points ratio (nHitsFit/nHitsFitPoss): $nHitsFit/nHitsFitPoss>0.51$
+    \item Pion selection: $-1<n\sigma_\pi<2$
+\end{itemize}
+
+\drawgraphics{0.8}{Results/IFF2015/EventQA/TrackpTEtaPhi300.png}{ Average track $\eta$, $\phi$, and $p_T$ per run.}{fig:qa}
+
+All the primary tracks originating from primary vertices are used. The cuts on $V_z$ and $V_{z,rank}$ remove pileup vertices. Tracks with higher TPC hits have higher precision than those with fewer fit points. The track cut on $\eta$ limits the track within the TPC acceptance in the central region. The fit points ratio cut prevents double counting tracks with different segments reconstructed as independent tracks. The $dca$ cut removes tracks from secondary decays. This set of selection cuts was specifically used for the QA analysis; the physics analysis cuts will be discussed in the respective section. 
+
+The average event and track parameters per run, such as $v_z$, $\eta$, $\phi$, $p_T$, etc.,  are plotted as a function of the run index. Ideally, the average value per run throughout the run period should be consistent. However, several environmental and experimental conditions affect the data-taking process resulting in event records that may not be useful for the physics analysis. Any run with an average value outside $3\sigma$ from the mean is excluded.
+
+Figure \ref{fig:qa} shows the average of track $p_T$, $\eta$, and $\phi$ for JP1 and JP2 triggers plotted as a function of the run index after QA for the first 300 runs. The average values feature the fill dependence, where each band corresponds to one fill. After QA, 749 good physics runs are found to be good for the physics analysis. A list of good runs can be found in the appendix \ref{appsec:runlist2015}.
+
+\subsection{Simulation and Comparison with Data}
+This analysis requires a Monte Carlo simulation sample to estimate systematic uncertainty due to the event triggering. Simulated events are generated using PYTHIA 6.4.28 \cite{pythia} with the Perugia 2012 tune \cite{Skands:2010ak}. In Perugia 2012, the parameter PARP(90), which controls the energy dependence of the underlying event processes low$-p_T$ cut-off, is adjusted from 0.24 to 0.213 to match STAR-specific measurements of the $\pi^\pm$ cross sections in 200 GeV $pp$ collisions \cite{STAR:2003oii, STAR:2011iap}. This modification has provided a good description of jet and underlying event properties in $pp$ collisions for both 200 \cite{STAR:2019cie, STAR:2020ejj, STAR:2021lvw} and 510 \cite{STAR:2019yqm} GeV energies. The simulated events are then processed through full detector simulations that match the detector configurations in 2015 runs implemented in GEANT 3 \cite{geant}. The GEANT 3 simulation fully replicates the STAR 2012 detector configuration. However, for the run 2015, additional material from the Heavy Flavor Tracker (HFT) \cite{Bouchet:2009id} in the region $|z| \lesssim 30$ cm is included. To account for this extra material effect, the GEANT simulation is conducted using the 2012 detector configuration but digitized with the routines that describe the detector readout in 2015\cite{STAR:2022hqg}. Event pileup and beam background effects are incorporated by embedding simulated events into the zero-bias events collected during 2015 runs. The zero-bias events are triggered on the bunch crossings at the clock trigger, which is uncorrelated with the collision. In addition, the  online trigger algorithm is implemented in the embedding sample, which allows trigger selection in the embedding sample.
+
+The simulation software records hard scattered partons, final state particles from the fragmentation and hadronization of partons, and the detector's response to the final state particles. The final state particles are referred to as ``particle level", while their response to the detector is called  ``detector level". The detector responses are recorded in the same format as those generated in real data events. 
+
+The detector level quantities from the embedding must have a good description of the real data to apply the embedding-driven measurement directly to the measurement from the data. The data and embedding are compared separately for all relevant physics quantities for the JP1 and JP2 triggers. 
+As the embedding sample is produced with the increasing partonic $p_T$ ($\hat{p_T}$) to ensure the comparable embedding statistics to the triggered statistics in the data, we need to combine all the $\hat{p_T}$ bins. To combine the $\hat{p_T}$ bins, a weight proportional to the number of events generated in the particular $\hat{p_T}$ bin  is used. The weight is simply an inverse of the luminosity for each $\hat{p_T}$, $\mathcal{L}_i = N_i\hat{\sigma}_i$, where $N_i$ is the total generated events in the $\hat{p_T}$ bin $i$ and $\hat{\sigma}$ is the corresponding partonic cross section. Furthermore, the luminosity is normalized by the luminosity of the highest $\hat{p_T}$ bin, such that the weight is one for the highest bin. The assurance of the reliable recombination of $\hat{p_T}$ bins is provided by the full $\hat{p_T}$ spectrum; it is expected to be a smooth distribution overall range of the $\hat{p_T}$. Figure \ref{fig:partonicpt} shows the weighted $\hat{p_T}$ combining all the partonic bins. The smoothness of the curve suggests that the weighting scheme is working perfectly. 
+ 
+\begin{figure}
+    \centering
+    \includegraphics{Results/IFF2015/DatEmbed/partonicpt_wt.png}
+    \caption{Weighted partonic $p_T$ distribution.}
+    \label{fig:partonicpt}
+\end{figure}
+
+Figure \ref{fig:piptpos} and \ref{fig:piptneg} shows the $p_T^{\pi^+}$ and $p_T^{\pi^-}$  comparison between the data and embedding for JP1 (left panel) and JP2 (right panel), respectively. A good data description by embedding over a wide $p_T$ range can be seen. The full comparison plots for the event and track-level quantities are shown  in appendix \ref{app:run15dataembed}. In the embedding, JP1 and JP2 triggers are combined using the prescale values from the data. The prescale value of 5.887 for the  JP1 trigger is used while combining distribution with the JP2, which has a prescale value of one. 
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.35]{Results/IFF2015/DatEmbed/pTPJP1.png}
+    \end{subfigure}
+    \hspace{0.2em}
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.35]{Results/IFF2015/DatEmbed/pTPJP2.png}
+    \end{subfigure}
+    \caption{$p_T^{\pi^+}$  for JP1 and JP2.}
+    \label{fig:piptpos}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.35]{Results/IFF2015/DatEmbed/pTNJP1.png}
+    \end{subfigure}
+    \hspace{0.2em}
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.35]{Results/IFF2015/DatEmbed/pTNJP2.png}
+    \end{subfigure}
+    \caption{$p_T^{\pi^-}$  for JP1 and JP2.}
+    \label{fig:piptneg}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.35]{Results/IFF2015/DatEmbed/ptPairJP1.png}
+    \end{subfigure}
+    \hspace{0.2em}
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.35]{Results/IFF2015/DatEmbed/ptPairJP2.png}
+    \end{subfigure}
+    \caption{\ptp\  for JP1 and JP2.}
+    \label{fig:piptneg} 
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.35]{Results/IFF2015/DatEmbed/MinvJP1.png}
+    \end{subfigure}
+    \hspace{0.2em}
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.35]{Results/IFF2015/DatEmbed/MinvJP2.png}
+    \end{subfigure}
+    \caption{\minv\ for JP1 and JP2.}
+    \label{fig:piptneg}
+\end{figure}
+
+\subsection{Events and Track Selection Cuts}
+\label{subsec:finalcuts}
+
+High-quality tracks associated with the event vertices within 60 cm along the beam direction from the nominal TPC center are used in this analysis. Each event should be JP-triggered and must have at least two quality tracks. Each track must have transverse momentum $p_T > 1.5 $ GeV/c and the distance of closest approach \emph{dca}$< 1$ cm from the event vertex. Charged pions are identified by measuring their ionization energy loss, $dE/dx$. Pions are selected by requiring a cut on the standard deviations of measured $dE/dx$ from the expected pion energy loss,  $-1< n\sigma_{\pi}< 2$, where $n\sigma_\pi$ is defined as, 
+\begin{equation}
+ n\sigma_\pi = \frac{1}{\sigma_{exp}} \mathrm{ln}(\frac{dE/dx_{obs}}{dE/dx_{\pi, calc}}) ,   
+\end{equation}
+where $dE/dx_{obs}$ is the observed value for the particle track, $dE/dx_{\pi, calc}$ is the expected mean $dE/dx$ for pions of the given momentum, and $\sigma_{exp}$ is the $dE/dx$ resolution of the TPC. 
+
+\input{Results/IFF2015/Preliminary/table_selectioncuts}
+
+\textbf{Terminology definitions:}
+\begin{itemize}
+	\item{Fit ratio = nHitsFit/nHitsFitPossible.}
+        \item $\eta = - \mathrm{ln\ tan}(\frac{\theta}{2})$, where $\theta$ is the angle between the particle momentum and the positive direction of the beam axis.  
+	\item{cone($\pi^+\pi^-$): Opening angle between $\pi^+$ and $\pi^-$  in $\eta - \phi$ space\\(cone$=\sqrt{(\eta^{\pi^+}-\eta^{\pi^-})^2 +(\phi^{\pi^+}-\phi^{\pi^-})^2}$).} 
+    \item{$M_{inv}^{\pi^+\pi^-}$: Invariant mass of $\pi^+\pi^-$ pair($=\sqrt{2M_{\pi}^2 +2(E^{\pi^+}E^{\pi^-}-\vec{p}^{\pi^+}\cdot \vec{p}^{\pi^-})}$ ).}
+	\item{$p_{T}^{\pi^+\pi^-}$: Transverse momentum of $\pi^+\pi^-$ pair relative to the beam direction ($=\sqrt{p_x^{{\pi^+\pi^-}^2}+p_y^{{\pi^+\pi^-}^2} }$ ).}
+	\item{$\eta^{\pi^+\pi^-}$: Pseudorapidity of $\pi^+\pi^-$($=\arcsin(\frac{p_z^{\pi^+\pi^-}}{p_T^{\pi^+\pi^-}})$ ).}
+\end{itemize}
+
+
+
+
+\subsection{\pip\ Pair Reconstruction and Binning}
+
+The \pip\ pairs are formed by selecting oppositely charged pion tracks and associated azimuthal angles and kinematics are constructed following geometry in the figure \ref{fig:angles}. All possible combinations of opposite pairs are formed for each event, without repetition (for example, \pip\ and $\pi^-\pi^+$ pair are the same, which are avoided!). The $\pi^+$ and $\pi^-$ tracks should be close enough in $\eta-\phi$ space (cone $\equiv \sqrt{(\eta^{\pi^+}-\eta^{\pi^-})^2+(\phi^{\pi^+}-\phi^{\pi^-})^2} < 0.7$). The cone cut ensures that the \pip\ is within the jet (note that jet reconstruction is not required, and the cone cut is applied to ensure the pair falls within the jet!). The pair kinematic variables are constructed with the formula listed in the section \ref{subsec:finalcuts}. The \pip\  pair invariant mass is denoted by \minv, the transverse momentum relative to the beam direction is denoted by \ptp\, and pseudorapidity is denoted by \etap, which are important pair level quantities in which asymmetry will be measured. Figure \ref{fig:pairkin} displays the reconstructed pair kinematic distributions.
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/cone.png}
+        \subcaption{cone}
+        \label{subfig:cone}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/mass.png}
+        \subcaption{\minv}
+        \label{subfig:mass}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/pt.png}
+        \subcaption{\ptp}
+        \label{subfig:pt}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/eta.png}
+        \subcaption{\etap}
+        \label{subfig:eta}
+    \end{subfigure}
+    \caption{\pip Kinematic distributions.}
+    \label{fig:pairkin}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/phisBlue.png}
+        \subcaption{$\phi_{S}$ Blue }
+        \label{subfig:phisB}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/phisYellow.png}
+        \subcaption{$\phi_{S}$ Yellow }
+        \label{subfig:phisY}
+    \end{subfigure}
+    \caption{$\phi_{S}$ distributions for blue and yellow beam.}
+    \label{fig:phis}
+\end{figure}
+    
+ \begin{figure} 
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/phirBlue.png}
+        \subcaption{$\phi_{R}$ Blue }
+        \label{subfig:phirB}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/phirYellow.png}
+        \subcaption{$\phi_{R}$ Yellow }
+        \label{subfig:phirY}
+    \end{subfigure}
+    \caption{$\phi_R$ distributions for blue and yellow beam.}
+    \label{fig:phir}
+\end{figure}
+
+The STAR coordinate system is followed for the reconstruction of the azimuthal angles. The blue beam direction is along the $+z$, and the yellow beam follows the $-z$ axis. For both beams, for a pair reconstruction, the polarization direction is fixed along the $+y$ axis as default. The $+x$ can be determined using the right-hand rule. The blue and yellow beam geometry differs in the $\eta-$ direction; the blue beam points from $-\eta$ to $+\eta$, whereas the yellow follows the opposite direction. To fix this kinematic difference, the sign of the $\eta$ of \pip\ events for the yellow beam is flipped, i.e., \etap (-\etap) $\rightarrow$ -\etap(\etap). The definition of azimuthal angle $\phi_{RS}(=\phi_{s}-\phi_{R})$ is illustrated in figure \ref{fig:pairkin}, which are constructed using equations \ref{eq:cosang} and \ref{eq:sinang}, where $\phi_{s}$ is an angle between the polarization vector, $\vec{s}_a$, and the scattering plane, formed by the beam momentum vector, $\vec{p}_{beam}$, and the \dipion\ momentum sum vector, $\vec{p}_h(=\vec{p}_{h,1}+ \vec{p}_{h,2})$. $\phi_{R}$ is an angle between the scattering plane and the \dipion\ plane, formed by two $\pi$'s momenta, $\vec{p}_{h,1}$, and $\vec{p}_{h,2}$. $\vec{R}(=\frac{1}{2}(\vec{p}_{h,1}-\vec{p}_{h,2}))$ is the relative momentum vector of the \dipion\ system. Here, $\vec{p}_{h,1}$ is reserved for $\pi^+$ and $\vec{p}_{h,2}$ for $\pi^-$. This charge ordering is important; otherwise, the direction of $\vec{R}$ is randomized, resulting in a diluted asymmetry (see appendix \ref{app:randomaut}).
+
+
+\begin{figure}    
+    \centering
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/phirsBlue.png}
+        \subcaption{$\phi_{RS}$ Blue}
+        \label{subfig:phirsB}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\linewidth}
+        \includegraphics[scale=0.3]{Results/IFF2015/PairDist/phirsYellow.png}
+        \subcaption{$\phi_{RS}$ Yellow}
+        \label{subfig:phirsY}
+    \end{subfigure}
+    \caption{$\phi_{RS} (= (\phi_{S} - \phi_{R})$ distributions for blue and yellow beam.}
+    \label{fig:phirs}
+\end{figure}
+
+
+The \pip\ yields are sorted based on the beam polarization direction ($\uparrow/\downarrow$). The STAR 2015 data has both beams polarized in the transverse direction, and, advantageously, both beams can be treated separately for asymmetry measurement. Moreover, the spin patterns during the fill are set to fixed order, such that if we integrate the polarization states, the net polarization will turn out to be zero. This feature of the spin patterns of polarized beams at STAR makes it possible to perform physics analysis that uses unpolarized beams, such as the unpolarized cross-section measurement as discussed in the chapter \ref{chapter:xsec}. 
+
+For the asymmetry measurement, yellow and blue beams are analyzed independently; while using yellow, the blue beam is treated as unpolarized, integrating all the spin states.  The decimal equivalent of the 8-bit spin pattern, listed below, is used to tag a beam polarization state (see appendix \ref{app:spinpattern}):
+\begin{itemize}
+    \item Blue $\uparrow$, Yellow $\uparrow$ $\equiv$ 51 (8-bit = 0011 0011)
+    \item Blue $\downarrow$, Yellow $\downarrow$ $\equiv$ 85 (8-bit = 0101 0101)
+    \item Blue $\uparrow$, Yellow $\downarrow$ $\equiv$ 53 (8-bit = 0011 0101)
+    \item Blue $\downarrow$, Yellow $\uparrow$ $\equiv$ 83 (8-bit = 0101 0011)
+\end{itemize}
+This immediately follows that the \dipion yields from the blue $\uparrow$, $N^\uparrow_B$, is given by the spin states 51 and 53 and that from blue $\downarrow$ is given by 83 and 85. Similarly, the yellow $\uparrow$ yields are given by spin states 51 and 83, whereas the yellow $\downarrow$ yields are given by 53 and 85. These numbers tag yields from specific spin states at the analysis level. 
+
+The \aut\ should be kept differential in as many as kinematic variables, which otherwise likely gets diluted \cite{Jaffe:1997}. In this analysis, \aut\ will be measured differentiated in \minv, \ptp, and \etap\ . The \etap\ is a surrogate of the partonic variable $x$, where, in the STAR coordinate system, \etap $>0 (<0)$ is the high(low)$-x$ region. Using a large data sample, each pair kinematics is divided into nine bins of varying width such that each bin contains roughly the same number of the \pip\ yields.
+
+For the extraction of the amplitude of the sine modulation, each kinematic bin is further divided into 16 $\phi_{RS}$ bins, and  the \pip\ yields are counted in each $\phi_{RS}$ bin for each spin state. For example, $N^\uparrow (\phi_{RS})$ represents the yields in the $\phi_{RS}$ bin when the beam is polarized $\uparrow$. The measurement is performed for both polarized beams separately, and the final result is the weighted average of both. 
+
+\subsection{Polarization Correction}
+The beam polarization is recorded at the beginning of the fill and followed by subsequent measurements during the beam fill. Because of the depolarization as discussed in section \ref{subsec:snakes}, the beam polarization decay linearly. The slope of the linear polarization decay ($\frac{dP}{dt}$) is provided for each beam fill along with the initial polarization ($P_0$) at the beginning of the fill ($t_0$). At any time, $t$, the polarization value is given by, 
+\begin{equation}
+    P(t) = P_0 + \frac{dP}{dt} (t-t_0)
+    \label{eq:pozdecay}
+\end{equation}
+\drawgraphics{0.8}{Results/IFF2015/PolzDist/polzDist.png}{Event-by-event polarization corrected values for blue and yellow beams.}{fig:avgpolz}
+
+\drawgraphics{0.8}{Results/IFF2015/PolzDist/polzVsrunindex.png}{Event-by-event polarization corrected values vs run index for blue and yellow beams.}{fig:polzvsrun}
+
+For every event, the actual polarization value is calculated using the equation above at the event time. The corrected polarization values for all events are filled in a histogram for every run for the blue and yellow beams, separately. Figure \ref{fig:avgpolz} shows the event-by-event corrected polarization distribution for a total data sample for blue and yellow beams, and corrected polarization as a function of the run index is shown in figure \ref{fig:polzvsrun}. From figure \ref{fig:avgpolz}, the corrected polarization are found to be, 
+    \begin{itemize}
+        \item $P_B$ = 57.11\% $\pm$ 3.75\% for the blue beam.
+        \item $P_Y$ = 58.16\% $\pm$ 3.80\% for the yellow beam.
+    \end{itemize}
+The $P_B$ and $P_Y$ values and associated errors are used in the asymmetry calculation. The 3\%  systematic uncertainty from the beam polarization measurement is not included in the asymmetry extraction, which will be mentioned separately with the result.      
+
+\subsection{\aut\ Extraction in $p^\uparrow p$}
+Since the \pip\ azimuthal correlation asymmetry arises due to the convolution of $h_1(x)$ and $H_1^{\sphericalangle,\pi^+\pi^-}(z, M^2)$, it inherit the dependence on the partonic variable $x$ from $h_1(x)$ and the final state variables $z$ and $M$, from $H_1^{\sphericalangle, \pi^+\pi^-}(z,M^2)$. So, \aut\ is extracted in \minv\ , \ptp\ , $x$, and $z$ bins. Moreover, the asymmetry is extracted as a function of \minv\ in different \ptp\ bins and vice versa, which provides further granularity in the kinematics for the global extraction of transversity. 
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.6\linewidth}
+        \includegraphics[scale=0.5]{Results/IFF2015/sinefit_blue.jpg}
+        \subcaption{}
+        \label{subfig:sineblue}
+    \end{subfigure}
+    \begin{subfigure}{0.6\linewidth}
+        \includegraphics[scale=0.5]{Results/IFF2015/sinefit_yellow.jpg}
+        \subcaption{}
+        \label{subfig:sineyellow}
+    \end{subfigure}
+    \caption{``sine" modulation and fits for (a) Blue (b) Yellow beams in $\eta>0$ in the \ptp bin ([6.4 - 15) GeV/$c$)  and \mpair bin ([0.77, 0.88) GeV/$c^2$, where the asymmetry signal is largest.}
+    \label{fig:sinefit}
+s\end{figure}
+\drawgraphics{0.8}{Results/IFF2015/mbin_chi2ndfAll.png}{$\chi^2$/ndf of the ``sine" fit in all kinematic bins. The quality of the ``sine" fit is monitored by the $\chi^2$/ndf ratio.}{fig:chi2ndf}
+
+The cross ratio formula, given by equation \ref{eq:crossratio}, is used for the \aut\ extraction. The right side of the equation \ref{eq:crossratio} is calculated for the 8 - $\phi_{RS}$ bins in the range [$-\pi$, 0]. This is possible by dividing the whole $\phi_{RS}$ range into 16 bins of equal width  and counting yields in each bin when the beam is polarized up or down. Then these eight data points are fitted with the ``sine" function, allowing the amplitude to float freely. The amplitude of the fit and corresponding error is the \aut\ signal and associated statistical uncertainty in the particular kinematic bin. An example of the fit is shown in figure \ref{fig:sinefit} for the blue (\ref{subfig:sineblue}) and yellow (\ref{subfig:sineyellow}) beam in the same kinematic bin (\ptp[6.4, 15)(GeV/$c$) and \minv[0.8823, 1.031)GeV/$c^2$, \etap $>0$), where the asymmetry signal is largest. The central values are the numerical value from the right side of equation \ref{eq:crossratio} calculated using yields in 8-$\phi_{RS}$ bins, and the error bars are the statistical uncertainty calculated by the error propagation method. The functionality of the fit has a very good description, as indicated by the $\chi^2/ndf$ of the fit. Figure \ref{fig:chi2ndf} shows the $\chi^2/ndf$ distribution from the ``sine" fit for blue and yellow beam asymmetry in forward and backward pseudorapidity regions associated with the results shown in figure \ref{autM}. The same level of fit quality is observed in all kinematic bins.    
+ 
+\subsection{Systematic Uncertainties}
+\subsubsection{Pion Contamination Fraction}
+ This measurement uses \pip\ pair for asymmetry measurement; however, any of the hadron pairs, such as \pip, $K^+K^-$, or $p\bar{p}$, can be used to achieve the same physics motivation. Different QCD mechanisms may be involved with the different hadron species resulting in different asymmetry signals. Thus, knowing the hadron purity in the kinematic bin where the asymmetry is measured is important. The STAR TPC measures the charged particle ionization loss, $dE/dx$, with which we can identify charged  particle species based on the track momentum and charge sign with the direction of curvature in the uniform magnetic field. The TPC, however, can identify particles of momentum $p < 1$ GeV/c with better precision, and the TPC capability degrades for the higher momentum particles. The STAR timing detector, TOF, compliments the TPC PID providing better resolution up to $p < 1.6 $ GeV/c; however, this measurement uses only the TPC information for the particle fraction calculation at the preliminary level, which is discussed in this section.
+    \drawgraphics{0.8}{Results/IFF2015/Bichsel_I70.png}{Distribution of $log_{10}(dE/dx)$ as a function of $log_{10}(p)$ for pion, kaon, electron, proton, and their antiparticles. The units of $dE/dx$ and $p$ are KeV/cm and GeV/c, respectively. The color band represents the $\pm 1\sigma$ band of the $dE/dx$ resolution. I70 means Bichsel's prediction for 30\% truncated $dE/dx$ mean \cite{Shao:2005iu}.}{fig:pidbichsel}
+
+Figure \ref{fig:pidbichsel} shows the $dE/dx$ as a function of particle track momentum in the logarithmic scale measured by TPC, together with Bichsel's prediction \cite{Shao:2005iu}. Each band represents the charged particle species. At the lower momentum region of $p<1$ GeV/c, $dE/dx$ for pions, kaons, protons, and electrons are separated. This allows the charge particle identification to higher precision in the lower momentum region. In the region $1 \leq p < 1.3$ GeV/c, the crossover of the $dE/dx$ bands takes place, which makes it difficult for particle identification in this region. However, beyond $p >1.3$ GeV/c, the relativistic rise of $dE/dx$ and lower electron and kaon yields, there is about 15\% difference in the $dE/dx$ between the pions and kaons, and that is even higher for the protons. So it is possible to identify pions from kaons and protons in the higher momentum region from the TPC alone; however, it is hard to identify kaons and protons as the  $dE/dx$ bands almost overlap. Since this analysis uses the pion tracks of $p_T\geq 1.5$ GeV/$c$, it skips the $dE/dx$ crossover region. The relativistic rise effect allows us to isolate the pions from the proton and kaon in this region; electrons are very few and well separated from pions. A standard approach adopted for calculating a fraction of other particle species ($p's, K's, e's$) that sneaks into the pion region using the $n\sigma_\pi$ distribution.
+
+\drawgraphics{0.8}{Results/IFF2015/PrelimPID/nsigmapion_pt0bin.png}{n$\sigma_\pi^+$ distribution in the lowest \ptp\ bin (2.8 - 3.71 GeV/$c$) in \etap $>0$.}{fig:pionnsigma}
+
+Figure \ref{fig:pionnsigma} shows the $n\sigma_\pi$ distribution for positive charge tracks in the lowest \ptp\ bin in \etap$>0$ region. The distribution has a prominent pion peak centered around zero. The proton and kaon appear on the left (p+k region), and the electron appears on the right of the pion peak. The selected pion region falls between the two vertical lines, which is selected with the cut in $n\sigma_\pi (-1<n\sigma_{\pi}<2)$. As the p+k falls very close to the pion, the major source of background in the pion signal region would be from the protons and kaons. The electron has a  distinct peak further away from the pion, which is easy to identify, and has a nominal presence in the pion signal region. Some tracks that appear on the far right, labeled ``Pile up", do not contribute to the pion signal region, so they are ignored.
+
+A multi-gaussian fit method estimates other particle contributions in the pion signal region. First, we need to know the peak position of each particle species in the $n\sigma_\pi$ distribution to construct a multi-gaussian fit that describes the whole distribution. This can be done by constructing a two-dimensional (2D) distribution of $n\sigma_\pi$ along the $x-$axis and $n\sigma_{p, K, e}$ along the $y-$axis. A sample 2D plots of $n\sigma_p$ vs $n\sigma_{\pi^+}$ in five \ptp\ bins in the \etap$>0$ is shown in figure \ref{fig:pid2dfit}. A third-order polynomial fit (pol3) on the profile of the 2D histogram, which gives the average of $y-$values for each of the $x-$bin, allows finding the peak position along the $y-$axis corresponding to the pion mean position at zero along $x-$axis. In figure \ref{fig:pid2dfit}, the proton's peak position is reported in each of the \ptp\ bins. The same approach identifies peak positions for kaons and electrons, with reference to the pion peak at zero. 
+    \drawgraphics{0.8}{Results/IFF2015/PrelimPID/cnSigmaPionVsProtonPosGt_pTbin.pdf}{ Track $n\sigma_\pi^+$ vs $n\sigma_p$  in five invariant mass bins.}{fig:pid2dfit}
+    
+    \drawgraphics{0.8}{Results/IFF2015/PrelimPID/pionFit_ptBinPosGt.pdf}{ Track $n\sigma_\pi^+$ multi-gaussian fit  in five invariant mass bins.}{fig:pidgausfit}
+   
+    \drawgraphics{0.7}{Results/IFF2015/PrelimPID/purity_pTbin.pdf}{ Particle fractions at the track level in the bins corresponding to the figure \ref{fig:pidgausfit}}{fig:trackpidpt}
+    
+    \drawgraphics{0.7}{Results/IFF2015/PrelimPID/purity_Mbin.pdf}{ Particle fractions at the track level in \minv bins.}{fig:trackpidmass}
+    
+    \drawgraphics{0.7}{Results/IFF2015/PrelimPID/purity_Etabin.pdf}{ Particle fractions at the track level in \etap bins.}{fig:trackpideta}
+
+    
+    \begin{figure}
+        \centering
+        \begin{subfigure}{0.45\linewidth}
+        \centering
+        \includegraphics[scale=0.4]{Results/IFF2015/PrelimPID/pairpurity_MBin.pdf}
+        \captionsetup{justification=raggedright,singlelinecheck=false}
+        \subcaption{\raggedright \pip\ fraction in \minv\ bins.}
+        \label{subfig:purity_mbin}
+        \end{subfigure}
+        \hspace{0.2em} 
+        \begin{subfigure}{0.45\linewidth}
+        \centering
+        \includegraphics[scale=0.4]{Results/IFF2015/PrelimPID/pairpurity_PtBin.pdf}
+        \subcaption{\pip\ fraction in \ptp\ bins.}
+        \label{subfig:purity_ptbin}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}{0.45\linewidth}
+        \centering
+        \includegraphics[scale=0.4]{Results/IFF2015/PrelimPID/pairpurity_EtaBin.pdf}
+        \subcaption{\pip\ fraction in \etap\ bins.}
+        \label{subfig:purity_etabin}
+        \end{subfigure}
+        \caption{\pip purity fractions in the asymmetry bins.}
+        \label{fig:pairpurity}
+    \end{figure}
+
+  The next step is constructing a multi-gaussian fit, a combination of five Gaussian fits, one for each four particle species and a ``Pile up". For a Gaussian fit of $p$'s, $e$'s, and $K$'s, the mean is set to the peak position with the width allowed to float, and the $\pi$'s mean is set to zero. The ``Pile up" fit is constructed passing the mean and width that best describes the fit and overall distribution. Figure \ref{fig:pidgausfit} shows a final multi-gaussian fit for a positive charge track in the five \ptp\ bins in the \etap$>0$ region. In this kinematic region, protons and kaons are close to each other and leak into the pion region from the left, and electron leaks from the right. 
+
+  Finally, we can calculate a fraction of $p$, $K$, and $e$ that contribute to the pion signal region by calculating a fraction of an area of particle Gaussian tail to the total area of the combined fit within the pion signal region ($-1<n\sigma_\pi<2$), i.e.
+  \begin{equation}
+      f_{\pi,p,K,e,} = \frac{I_{\pi,p,K,e}(-1,2)}{I_{total}(-1,2)},
+  \end{equation}
+where, $I(-1,2)$ is the gaussian integral in the range $-1<n\sigma_\pi<2$. This gives the pion purity at the track level. The track-level particle fractions are shown in figure \ref{fig:trackpidpt}-\ref{fig:trackpideta}. The pair level purity, the probability that both tracks are pions, is calculated as a product of $f_{\pi^+}$ and $f_{\pi^-}$. Figure \ref{fig:pairpurity} shows the pair-level pion purity fractions. The pair fraction depends on the \ptp\ bins; the lowest \ptp\ bin falls close to the crossover region in the $dE/dx$ band and has a lower purity fraction. In the higher \ptp\, the pion band is separated from the kaon and proton bands resulting in a better pion purity. In the higher \ptp\ at the track level, about 85\% of pion purity is achieved, whereas it's about 75\%  in the lowest bin. The particle fractions are also calculated in the \minv\ and \etap\ bins. Since the momentum dependence in those bins gets diluted, we do not see a clear dependence on the particle fractions, and the average \pip\ purity is about 80\%.    
+
+The pion impurity fraction ($1-f_{\pi}$), dominated by the protons and kaons, estimates a systematic uncertainty. It is assumed that the kaon and proton asymmetry signals are of the size of the pion signal or smaller. The size of the systematic uncertainty is calculated as the pion impurity times the asymmetry signal or the statistical uncertainty, whichever is the larger.
+    \begin{equation}
+    \delta_{sys,pid} = (1-f_{\pi})\times Max(A_{UT}, \delta_{ A_{UT}})
+    \end{equation}
+
+\subsubsection{Trigger Bias}
+ The event triggering algorithm at STAR imparts biased at the parton level favoring quark events over the gluon events. The size of this effect can only be estimated from a simulation because parton-level information is inaccessible in the data. The size of trigger bias is determined by calculating the fraction of quark events at the detector level and the same fraction from the unbiased events, free from event-triggering effects, and taking a ratio between them.
+The bias fraction, $f_{bias}$, can be written as, 
+\begin{equation}
+f_{bias}= \frac{f_{q}^{detector}}{f_{q}^{particle}}=\frac{(N_q/N_{q+g})^{detector}}{(N_q/N_{q+g})^{particle}},
+\end{equation} 
+where $q$ and $g$ refer to quark and gluon, respectively. 
+
+\drawgraphics{0.8}{Results/IFF2015/TriggerBias/bias_EtaBin.png}{Trigger bias in \etap bins.}{fig:trigbiaseta}
+
+\drawgraphics{0.8}{Results/IFF2015/TriggerBias/QbiasPtLt_Mbin4.pdf}{Trigger bias in the highest \ptp\ bin.}{fig:trigbiasmass}
+
+\drawgraphics{0.8}{Results/IFF2015/TriggerBias/QbiasMLt_pTbin4.png}{Trigger bias in the highest \minv\ bin.}{fig:trigbiaspt}
+
+As in the data, the same event and track level cuts are applied at the detector and particle levels. The track $\eta$ and $p_T$ cuts are retained at the particle level. Finding a parton associated with the \pip\ is not as straightforward because we do not reconstruct jets. The best we can do is to mimic an approach of assigning a parton to each of the \pip\ as it is done if we have jets. To assign each \pip\ event to the associated partons, which are identified with the PDG codes, an angle between two outgoing partons in $\eta - \phi$ space is calculated, and a parton closest to the \pip\ is considered a source parton. We put a constraint on the opening angle to be less than 0.5 ( $\Delta R = \sqrt{(\eta_{parton} - \eta_{pair})^2 + (\phi_{parton} -\phi_{pair})^2} < 0.5$), to ensure that \pip\ meet the condition that it is within the jet. Then histograms are created for each parton flavor with \pip\  kinematic bins, with binning the same as the asymmetry bins. The histogram bin content for a parton is increased by one for every \pip\ event tagged with the associated parton. Eventually, we will have a full set of histograms for each parton flavor for the detector and particle level. Then, by dividing the histogram for a quark by a parton, we can have a histogram of a quark fraction. Finally, we get the actual trigger bias fraction by dividing a quark fraction histogram at the detector and particle level.     
+
+Figures \ref{fig:trigbiaseta}-\ref{fig:trigbiaspt} shows quark fraction (in red) and gluon fraction (in blue) at the detector and particle level in the left panel, and the bias fraction is shown in the right panel, in \etap, the highest \minv\ bin as a function of \ptp\ in \etap$<0$, and the highest \ptp\ bin as a function \minv\ in \etap$<0$, respectively. Solid lines represent detector-level fractions, and that particle level is shown in dashed lines. The bias fractions do not show a clear trend for all kinematic bins, similar in the \etap$>0$ region. So, a single value from a constant fit on the bias fraction is used to estimate trigger bias. The same procedure is applied to estimate the bias fraction for all asymmetry bins. For a bias fraction, $f_{bias}$, systematic uncertainty imparted due to the event triggering, $\delta_{sys,bias}$, is calculated as, 
+\begin{equation}
+    \delta_{sys,bias} = (1-f_{bias})\times Max(A_{UT}, \delta_{A_{UT}})
+\end{equation}
+
+\subsubsection{Systematic Error Propagation}
+Systematic uncertainties are calculated in each of the asymmetry bins. The total systematic uncertainty, $\delta_{sys}$, is the quadrature sum of the systematic error from the trigger bias and pion contamination; 
+\begin{equation}
+    \delta_{sys} = \sqrt{\delta_{sys,bias}^2 + \delta_{sys,pid}^2}
+\end{equation}
+The total systematic uncertainty is assigned symmetrically to the signal and reported as \aut\ $\pm  
+\ \delta_{stat} \pm\  \delta_{sys} $.
+
+\subsection{Results}
+
+\subsubsection{\aut\ vs \etap}
+\drawgraphics{0.8}{Results/IFF2015/Preliminary/moneyplot_AutVsEtaXZ_CombSys.pdf}{\aut\ as a function of  \etap\, integrated over \minv\ and \ptp\ (\emph{top panel}). The quark $\langle z \rangle$ and $\langle x \rangle$, in the corresponding \etap\ bins, are shown in the \emph{bottom panel}.}{autEta}
+
+Figure \ref{autEta} shows \aut\ as a function of \etap\, integrated over \minv\ and \ptp\ (\textit{upper panel}). The vertical lines represent the statistical uncertainty, and the box represents the total systematic uncertainty. The fraction of proton momentum carried by a fragmenting quark, $<x>$, and the fraction of fragmenting quark energy carried by \pip\ , $<z>$, in the same \etap\ bins from the simulation are shown in the bottom panel. In the given \etap\ bins, $x$ ranges from 0.1 to 0.22, moving from the backward to forward region. However, $z$ has no clear dependence with \etap\ with the average of $\sim 0.46$.
+
+A large \aut\ signal is observed in the forward region, increasing from \etap$\sim0$ to the forward region. This region is where valence quarks of higher $x$ are probed. The $x$-dependence of transversity and a large asymmetry signal  suggests a sizeable transversity signal in the forward region. The backward region is the low-$x$ region, and the lower asymmetry signal is observed as expected.  
+
+\subsubsection{\aut \ vs \minv }
+\drawgraphics{1.0}{Results/IFF2015/Preliminary/moneyplot_AutVsMinv_CombSys.pdf}{\aut\ measured in five \ptp\ bins in \etap$>0$ (in red) and \etap$< 0$ (in blue) regions. The value of $\langle$ \ptp $\rangle$ for each transverse momentum bin is shown at each panel's top right corner.}{autM}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{Results/IFF2015/Preliminary/moneyplot_AutVsMinv5_XZ_CombSys.pdf}
+    \captionof{figure}{\aut as a function of $M_{inv}^{\pi^+\pi^-}$, in highest \ptp bin and in $\eta^{\pi^+\pi^-} > 0$ region (top panel). The bottom panel shows the $<x>$ and $<z>$ in the corresponding mass bins.}
+    \label{autMhpT}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.7]{Results/IFF2015/Preliminary/STARAutVsM.200.500.GeV_Wsys.pdf}
+    \captionof{figure}{\aut as a function of $M_{inv}^{\pi^+\pi^-}$, in $\eta^{\pi^+\pi^-} > 0$ region, compared with the theoretical calculation from \cite{mradici}.}    
+    \label{autMintAll}
+\end{figure}
+Figure \ref{autM} shows \aut\ as a function of \minv\ in five \ptp\ bins. Each \ptp\ bin, \aut\ is extracted in the forward and backward \etap\ regions. Each panel represents a \ptp\ bin, and its range increases as we move from left to right and down. The average \ptp\ within each bin is shown in the top-right corner of each panel. Asymmetry signal with this binning approach  provides more insight into understanding transversity, allowing us to simultaneously observe the \minv\ and \ptp\ dependence.  
+
+The forward asymmetries are  all positive and feature a unique resonance peak at \minv $\sim 0.8$ GeV/$c^2$ close to the $\rho-$meson mass. The peak is more prominent with the increase of \ptp\ bin. This resonance peak is expected in the IFF model calculation due to the interference of vector meson decays in a relative $p-$wave with the non-resonant background in  a relative $s-$wave \cite{Jaffe:1991kp, Jaffe:1997pv, Bacchetta:2004it}. The resonance peak in this measurement corroborates previous STAR observations \cite{STAR:2015jkc, STAR:2017wsi}. Backward asymmetries are small but non-zero. The backward region is dominated by the scattered quarks from the unpolarized beam and low $x$ quarks from the polarized beam, which carry less spin information. Therefore a smaller asymmetry signal is expected. The kinematic coverage of $x$ and $z$ in the highest \ptp\ bin in the forward region, where the asymmetry signal is largest, is shown in the bottom panel of figure \ref{autMhpT}. $x$ increase with the mass ranging from $0.25$ to slightly over 0.3, whereas $<z>\sim 0.2$.   
+
+In figure \ref{autMintAll}, STAR 2015 \aut\ as a function of \minv, integrated over \ptp, in the forward region is compared with the STAR 2006, 2015, and a theory curve (\emph{gray band}), which is fit to the SIDIS, $e^+e^-$, and STAR 2006 data from reference \cite{mradici}. This also features the result from the STAR Run 2011 at $sqrt{s}$ = 510 GeV, showing good agreement with the 2006 result and the theory. The uncertainty band is produced with the bootstrap method based on 600 replicas at a 90\% confidence level, including the systematic theoretical uncertainty on the gluon fragmentation into \pip, which is currently unknown. Both STAR measurements agree with the theory with a significant resonance peak at \minv $\sim M_\rho$.
+
+\subsubsection{\aut\ vs \ptp}
+\drawgraphics{1}{Results/IFF2015/Preliminary/moneyplot_AutVspT_CombSys.pdf}{\aut vs \ptp, in five \minv bins in \etap$>0$ (in red) and \etap$< 0$ (in blue) regions. The value of $\langle$ \minv $\rangle$ for each of the invariant mass bins is shown at the top left corner of each panel.}{autpT}
+
+\aut\ as a function of \ptp\ in five \minv\ bins in forward (\emph{in red}) and backward (\emph{in blue}) regions are shown in figure \ref{autpT}. The asymmetry signal rises linearly with the \ptp\ in the forward region, and the trend is much stronger in the invariant mass bin when $\langle M_{inv}^{\pi^+\pi^-}\rangle \sim M_\rho$. The backward asymmetry signal follows a similar trend as in the forward region; however, the amplitude is relatively small.
+

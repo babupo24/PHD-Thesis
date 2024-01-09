@@ -1,0 +1,164 @@
+\documentclass[12pt]{report}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{floatrow}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor} 
+\usepackage{longtable} 
+\usepackage{tabularx} 
+\usepackage{adjustbox} 
+\usepackage{diagbox} 
+\usepackage{rotating}
+\input{TemplePhD_Macros}
+\input{TemplePhD_Packages}
+
+
+% Change the header; default: Bibliography
+\addto{\captionsenglish}{\renewcommand{\bibname}{BIBLIOGRAPHY}}
+
+\captionsetup{belowskip=12pt,aboveskip=4pt}
+
+% Turn off those nasty overfull and underfull hboxes
+\hbadness=10000
+\hfuzz=50pt
+
+\begin{document}
+
+% Center the chapter titles
+\renewcommand{\chaptername}{CHAPTER}
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\centering}{\chaptername\ \thechapter}{20pt}{\Huge}
+
+\newcommand{\mychapter}[2]{
+    \setcounter{chapter}{#1}
+    \setcounter{section}{0}
+    \chapter*{#2}
+    \addcontentsline{toc}{chapter}{#2}
+}
+
+% Set font parameters
+\fontsize{12}{15}
+\selectfont
+
+%: ----------------------------------------------------------------------
+%: Title page
+%: ----------------------------------------------------------------------
+
+\renewcommand\baselinestretch{1.2}
+\baselineskip=18pt plus1pt
+
+\setcounter{page}{1}
+\input{TemplePhD_TitlePage}
+\pagenumbering{roman}
+
+%: ----------------------------------------------------------------------
+%: Front matter: dedication and acknowledgments
+%: ----------------------------------------------------------------------
+\renewcommand\abstractname{\normalfont\huge\bfseries\centering ABSTRACT}
+\include{TemplePhD_Abstract}
+
+\setcounter{page}{2}
+\addcontentsline{toc}{chapter}{ACKNOWLEDGEMENTS}
+\include{TemplePhD_Acknowledgements}
+
+
+%: ----------------------------------------------------------------------
+%: Contents
+%: ----------------------------------------------------------------------
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\tableofcontents
+
+%: ----------------------------------------------------------------------
+%: List of figures and tables
+%: ----------------------------------------------------------------------
+\begingroup
+\renewcommand\addvspace[1]{}
+\setlength\parskip{\baselineskip}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand{\listtablename}{LIST OF TABLES}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+
+\listoftables
+\addcontentsline{toc}{chapter}{LIST OF TABLES}
+
+\endgroup
+
+%: ----------------------------------------------------------------------
+%: Glossary: Not used in this version of the template
+%: ----------------------------------------------------------------------
+
+% Tie in external source file for definitions: /TOC/glossary.tex
+% Glossary entries can also be defined in the main text. See glossary.tex
+% \include{TOC/glossary}
+
+% \begin{multicols}{2}      % \begin{multicols}{#columns}[header text][space]
+% \begin{footnotesize}      % scriptsize(7) < footnotesize(8) < small (9) < normal (10)
+%
+% \printnomenclature[1.5cm] % [] = distance between entry and description
+% \label{nom}               % target name for links to glossary
+%
+% \end{footnotesize}
+% \end{multicols}
+
+%: ----------------------------------------------------------------------
+%: Main document section
+%: ----------------------------------------------------------------------
+
+\addtocontents{toc}{\vspace*{0.25in}}
+%\addtocontents{toc}{\contentsline{chapter}{\numberline{CHAPTER}}}
+%\addtocontents{toc}{\contentsline{chapter}{\numberline{CHAPTER}}}
+%\addtocontents{toc}{\protect\contentsline{CHAPTER}{\protect\numberline{CHAPTER}}}
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\include{TemplePhD_Chapter1_Intro}
+
+\include{TemplePhD_Chapter2_Theory}
+
+\include{TemplePhD_Chapter3_Expt}
+
+\include{TemplePhD_Chapter4_IFFAsym}
+
+\include{TemplePhD_Chapter5_Xsec}
+
+\include{TemplePhD_Chapter6_Summary}
+
+
+% Bibliography: We use a BibTeX file for a database other f references
+
+\addtocontents{toc}{\vspace*{0.25in}}
+\addcontentsline{toc}{chapter}{BIBLIOGRAPHY}
+\bibliographystyle{unsrt} 
+\bibliography{TemplePhD_References}
+
+% Appendices
+
+\addtocontents{toc}{\vspace*{0.25in}}
+%\addtocontents{toc}{\contentsline{chapter}{\numberline{APPENDICES}}}
+
+\begin{appendices}
+
+\appendix
+\renewcommand\chaptername{APPENDIX}
+
+\include{TemplePhD_Appendices}
+
+\end{appendices}
+
+\printindex
+\end{document}
